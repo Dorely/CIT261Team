@@ -1,5 +1,7 @@
 function loop() {
     var text = "";
+    // nasty path
+    //for(;;) while result in a forever loop
     for(var i = 1; i <= 10; i++ ){
         text += i + "<br>";   
     }
