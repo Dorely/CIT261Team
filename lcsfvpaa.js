@@ -1,7 +1,6 @@
 function loop() {
     var text = "";
-    // nasty path
-    //for(;;) while result in a forever loop
+    
     for(var i = 1; i <= 10; i++ ){
         text += i + "<br>";   
     }
@@ -70,8 +69,6 @@ function showArray(){
     }
     else{
         var text = "";
-        //Bad path
-        // for(i = 0; i <= words.length; i++)
         for(var i = 0; i < words.length; i++ ){
             text += words[i] + "<br>";   
         }
@@ -92,3 +89,18 @@ function associative(){
     ];   
 }
 
+// nasty path
+    //for(;;) while result in a forever loop
+
+// nasty path
+    // diplay(text) there is no function named that
+    // or giving it passing a null will print nothing. 
+
+//nasty path
+    // while(true) will nee a break. no good programming
+
+//nasty path
+// function display() no paramater will never be called.
+
+//Bad path
+        // for(i = 0; i <= words.length; i++)
