@@ -155,6 +155,28 @@ function objectMethods(){
             };
     }
     
+    var jon = new person("jon","harmon");
+    jon.changeName("got married")
     
+    alert(jon.lastName);
+    
+    //nasty path hard to access hidden constructor method
+    function oneObject(first, middle, last) {
+        this.first = first;
+        this.middle = middle;
+        this.last = last;
+       
+       //this does not make an error but can only be accessed within this function
+        function nestedObject(name) {
+            this.name = name;
+        }
+       
+       this.hiddenObject = new nestedObject("Hidden Object");
+    }
+    
+    var person3 = new oneObject("Jonathan",null,null);
+    
+    alert(person3.hiddenObject.name);
 }
+
 
