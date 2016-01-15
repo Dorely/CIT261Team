@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>JSON</h1>
+        <a href="index.html">Home Page</a>
+        <p>
+            JSON literally stands for JavaSript Object Notataion.
+            This basically means that there is a specific type of syntax for typing within javascript.
+            It is kind of like staying that it is Spanish verses Arabic.
+            They both serve to communicate, just one is spoken differently than the other.
+            Another form to write in would be XML.
+            This looks a lot like HTML.
+           (That is because HTML is based on XML.)
+        </p>
+        <p id = "demo"></p>
+        <script>
+//            the following set of lines are HappyPath code
+//            this is an example of JSON syntax
+            var view = '{ "team":[' +
+                    '{"firstName":"Jonathan", "lastName":"Bonin"},' +
+                    '{"firstName":"Jonathan", "lastName":"Harmon"},'+
+                    '{"firstName":"Andrew", "lastName":"Thurman"}]}';
+            
+//           The following set of lines I found along with JSON, but unsure why it is symentically different
+            var newView = { "team":[
+                    {"firstname":"Jonathan", "lastname":"Bonin"},
+                    {"firstname":"Jonathan", "lastname":"Harmon"},
+                    {"firstname":"Andrew", "lastname":"Thurman"}
+                ]
+            };
+            
+            
+//            this is an example of NastyPath. It doesnt work correctly
+//            document.write(view);
+
+//            Here is another example of a nasty path
+//            document.write(JSON.parse(view));
+
+//            The following is also nasty path
+//            var obj = JSON.parse(view);
+//            document.write(obj);
+
+//            The follwoig code is HappyPath. 
+//            Although it does not display all of the values. 
+//            This was copied from the internet
+//            obj = JSON.parse(view);
+//            document.getElementById("demo").innerHTML =
+//            obj.team[1].firstName + " " + obj.team[1].lastName;
+
+//            The following is NastyPath
+//            for(var i = 0; i < view.length; i++){
+//            obj = JSON.parse(view);
+//            document.getElementById("demo").innerHTML =
+//            obj.team[i].firstName + " " + obj.team[i].lastName;
+//            }
+
+
+//            The following is HappyPath 
+//            This set of lines displays what is in the variable called team (next two lines are debugging)
+//                  console.log(obj);
+//                  console.log(obj.team.length);
+            obj = JSON.parse(view);
+            for(var i = 0; i < obj.team.length; i++){
+            document.write(obj.team[i].firstName + ' ' + obj.team[i].lastName + "<br>");
+        }
+            
+            
+
+            
+
+        </script>
+    </body>
+</html>
