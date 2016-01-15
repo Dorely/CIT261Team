@@ -12,6 +12,12 @@
 //        objectProperties();
 //        objectMethods();
         loopsSandbox();
+        conditionalSandbox();
+        functionSandbox();
+        variablesSandbox();
+        parametersSandbox();
+        arraysSandbox();
+        associativeSandbox()
         
         
     </script>
