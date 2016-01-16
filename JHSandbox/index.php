@@ -5,20 +5,21 @@
     <title>Title</title>
     <script src="objectsSandbox.js"></script>
     <script src="controlSandbox.js"></script>
+    <script src="jsonSandbox.js"></script>
     <script>
-        //objectsSandbox functions
+//        objectsSandbox functions
 //        objectCreation();
-//        objectInheritence();
+//        objectInheritance();
 //        objectProperties();
 //        objectMethods();
-        loopsSandbox();
-        conditionalSandbox();
-        functionSandbox();
-        variablesSandbox();
-        parametersSandbox();
-        arraysSandbox();
-        associativeSandbox()
-        
+//        loopsSandbox();
+//        conditionalSandbox();
+//        functionSandbox();
+//        variablesSandbox();
+//        parametersSandbox();
+//        arraysSandbox();
+//        associativeSandbox();
+        jsonSandbox()
         
     </script>
 </head>

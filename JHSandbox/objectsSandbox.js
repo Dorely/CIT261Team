@@ -91,7 +91,7 @@ function objectCreation() {
     
 }
 
-function objectInheritence(){
+function objectInheritance(){
     
     //happy path with Object.create
     var obj1 = {a:1};

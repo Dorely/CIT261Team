@@ -389,6 +389,7 @@ function associativeSandbox(){
     for(element in assAr){
         console.log(element)
     }
+    console.log(assAr)
 
     //nasty path using an array to do this
     var assAr2 = []
@@ -398,5 +399,5 @@ function associativeSandbox(){
     for(element in assAr2){//still works, not proper
         console.log(element)
     }
-
+    console.log(assAr2)
 }
