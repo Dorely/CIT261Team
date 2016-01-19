@@ -143,7 +143,7 @@ function replaceChildSandbox(){
     //parentElement.replaceChild(secondChild,firstChild) // I thought this would swap things, its actually just a big mess
     //parentElement.replaceChild(firstChild,secondChild)
 
-    //maybe this will work?
+    //doing it this way works
     newFirstChild = firstChild.cloneNode(true)
     newSecondChild = secondChild.cloneNode(true)
     parentElement.replaceChild(newSecondChild,firstChild)
