@@ -22,7 +22,7 @@ function jsonSandbox(){
     try{
         console.log(JSON.parse("Hello World"))
     }catch(e){
-        console.log("bad JSON")
+        console.log(e.toString())
     }
 
     //happy path stringify
