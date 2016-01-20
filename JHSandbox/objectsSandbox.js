@@ -91,9 +91,76 @@ function objectCreation() {
     
 }
 
-function objectInheritence(){
-    
-    //happy path with Object.create
+function objectInheritance(){
+
+    //happy path inheritance
+    function boat(color,typeOfMotor){
+        this.color = color
+        this.typeOfMotor = typeOfMotor
+    }
+
+    function ship(color,size) {
+        boat.call(this,color,"Ship Propeller")
+        this.size = size;
+    }
+
+    function aircraftCarrier(owner,captain){
+        ship.call(this,"grey","Three football fields")
+        this.owner = owner;
+        this.captain = captain
+    }
+
+    var usaShip = new aircraftCarrier("usa","Harmon")
+    console.log(usaShip)
+
+    //nasty path try to inherit from two different things with overlapping properties, inherit from self, etc
+    function item(name){
+        this.name = name
+        this.price = "1.00"
+    }
+
+    function food(name,price,type){
+        this.name = name
+        this.price = price
+        this.type = type
+    }
+
+    function foodItem(name,price,type,seller){
+        food.call(this,name,price,type)//because price overlaps in both, the second one called is the one that takes effect
+        item.call(this,name,price)
+        this.seller = seller
+    }
+
+    var appleCrisps = new foodItem("Dandy Boys","0.99","Non-Perishable","Dollar Tree")
+    console.log(appleCrisps)
+
+    //nasty path inheriting itself
+    function chickenEgg(color,size){
+        chickenEgg.call(this,color,size)
+        this.color = color
+        this.size = size
+    }
+
+    //var egg = new chickenEgg("brown","large") //throws "too much recursion"
+    //console.log(egg)
+
+    //nasty path circular inheritance
+    function Chicken(breed,eggColor){
+        BrownEgg.call(this,"Small","Leg Horn")
+        this.breed = breed
+        this.eggColor = eggColor
+    }
+
+    function BrownEgg(size,chickenType){
+        Chicken.call(this,"Road Island Red","Brown")
+        this.size = size
+        this.chickenType = chickenType
+    }
+
+    //var newEgg = new BrownEgg("Medium","White Fatty")//once again too much recursion
+
+
+    //happy path with Object.create cloning / not real inheritance
     var obj1 = {a:1};
     console.log(obj1.a);
     var obj2 = Object.create(obj1);
@@ -109,7 +176,8 @@ function objectInheritence(){
     
     //nasty path accessing properties not inherited
     console.log(obj1.b); //returns undefined
-           
+
+
 }
 
 function objectProperties(){
