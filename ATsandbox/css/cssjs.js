@@ -20,3 +20,6 @@ inElement[0].style.backgroundColor = "#000000"
 
 //inElement[] // undefiend
 //inElement[1] // undefiend because it's out of scope for this code.
+
+//var xElem = document.getElementsByTagName("DIV").className
+// need [] (with a number within hte cope of the array) after the () to inorders
