@@ -15,11 +15,8 @@ inElement[0].style.height = "300px"
 inElement[0].style.backgroundColor = "#000000"
 
 //nasty path
-//inElement.style.width 
+inElement.style.width = "300px"
 //results in an error because document.getElementsByClassName() returns an array
 
-//inElement[] // undefiend
-//inElement[1] // undefiend because it's out of scope for this code.
-
-//var xElem = document.getElementsByTagName("DIV").className
-// need [] (with a number within hte cope of the array) after the () to inorders
+inElement[] // undefiend
+inElement[1] // undefiend because it's out of scope for this code.
