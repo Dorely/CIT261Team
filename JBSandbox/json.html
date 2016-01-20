@@ -11,6 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <header>
+            <h1>Stringify</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+            </nav>
+        </header>
         <h1>JSON</h1>
         <a href="index.html">Home Page</a>
         <p>
@@ -20,7 +26,7 @@ and open the template in the editor.
             They both serve to communicate, just one is spoken differently than the other.
             Another form to write in would be XML.
             This looks a lot like HTML.
-           (That is because HTML is based on XML.)
+            (That is because HTML is based on XML.)
         </p>
         <p id = "demo"></p>
         <script>
@@ -28,18 +34,18 @@ and open the template in the editor.
 //            this is an example of JSON syntax
             var view = '{ "team":[' +
                     '{"firstName":"Jonathan", "lastName":"Bonin"},' +
-                    '{"firstName":"Jonathan", "lastName":"Harmon"},'+
+                    '{"firstName":"Jonathan", "lastName":"Harmon"},' +
                     '{"firstName":"Andrew", "lastName":"Thurman"}]}';
-            
+
 //           The following set of lines I found along with JSON, but unsure why it is symentically different
-            var newView = { "team":[
-                    {"firstname":"Jonathan", "lastname":"Bonin"},
-                    {"firstname":"Jonathan", "lastname":"Harmon"},
-                    {"firstname":"Andrew", "lastname":"Thurman"}
+            var newView = {"team": [
+                    {"firstname": "Jonathan", "lastname": "Bonin"},
+                    {"firstname": "Jonathan", "lastname": "Harmon"},
+                    {"firstname": "Andrew", "lastname": "Thurman"}
                 ]
             };
-            
-            
+
+
 //            this is an example of NastyPath. It doesnt work correctly
 //            document.write(view);
 
@@ -70,13 +76,13 @@ and open the template in the editor.
 //                  console.log(obj);
 //                  console.log(obj.team.length);
             obj = JSON.parse(view);
-            for(var i = 0; i < obj.team.length; i++){
-            document.write(obj.team[i].firstName + ' ' + obj.team[i].lastName + "<br>");
-        }
-            
-            
+            for (var i = 0; i < obj.team.length; i++) {
+                document.write(obj.team[i].firstName + ' ' + obj.team[i].lastName + "<br>");
+            }
 
-            
+
+
+
 
         </script>
     </body>

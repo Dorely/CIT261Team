@@ -11,8 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id = "string">
-        <h1>Stringify</h1>
-        <a href="index.html">Home Page</a>
+        <header>
+            <h1>Stringify</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+            </nav>
+        </header>
         <p>
             What this does is convert things.
             So if you have an array that has multiple strings in it, this function (i think its a function) will come by and concert the strings to objects.
@@ -66,10 +70,10 @@ and open the template in the editor.
 
             var car = new Object();
             car.name = "me";
-            car.color ="red";
+            car.color = "red";
             var jsonText = JSON.stringify(car);
             document.write(jsonText + '<br>');
-            
+
             var car = document.getElementById("string").innerHTML;
 //            console.log(car);
             var jsonText = JSON.stringify(car);
