@@ -35,6 +35,8 @@ function loopsSandbox(){
         //this will run only 10 times instead of the expected 20
     }
 
+    //nasty path for loop everytime you go through the loop remove the item from the array.remove()
+
     //happy path while loops
     var i=0;
     while(i<10){
@@ -208,6 +210,8 @@ function functionSandbox(){
     }
     recursion(1)
 
+    //lookup difference between head recursion and tail recursion
+
     //nasty path recursion infinite
     //recursion(0) //this would be infinite in the current implementation of recursion
     function recursion2(number){
@@ -236,6 +240,9 @@ function variablesSandbox(){
     //nasty path
     var f= g, g="value of g"
     console.log(f+" "+g)
+
+    //nasty path text input box retrieves numeric value out of it and add 1
+    //to fix this multiply by 1 before operating
 
     //nasty path hoisted variables
     q=10
@@ -271,6 +278,10 @@ function parametersSandbox(){
     //
     //z(5)
     //z(5,5)
+
+    //nasty path function that has no declared parameters but which you pass parameters and use them
+
+    //function that requires multiple parameters but you dont pass them all
 
     //nasty path passing objects by reference
 
@@ -317,6 +328,14 @@ function arraysSandbox(){
     //demonstrating indexOf
     console.log(ar2.indexOf("one"))//returns 0
 
+    //insert method happy path and nasty path
+    //bro Barney mentioned, cannot find
+    //all internet says to use splice
+    //remove method
+    //bro Barney Mentioned, cannot find
+    //internet says to use splice
+
+
     //for loop array length
     for(var i=0;i<ar2.length;i++){
         console.log(ar2[i])
@@ -334,6 +353,11 @@ function arraysSandbox(){
     console.log(removed)
     console.log(ar2.toString())
 
+    //insert items with splice at an index
+    var toBeAdded = "words here"
+    ar2.splice(3,0,toBeAdded)
+    console.log(ar2)
+
     //copy items by index with slice
     var copied = ar2.slice(0,2)//or the whole array ar2.slice() with no parametes
     console.log(copied)
@@ -350,16 +374,30 @@ function arraysSandbox(){
     console.log(ar2d[1][0])
 
     //nasty path invalid parameters various methods
-    var newArray = []
+    var newArray = new Array()
     console.log(newArray.pop())
     console.log(newArray[null] = "null value")
     console.log(newArray[null])//why does this work????
     console.log(newArray[-1]="negative one")
+
+    console.log(newArray)
     console.log(newArray[-1])//why does this work????
+    console.log(ar3)
     console.log(ar3.slice(10,20))
+    console.log(ar3)
     console.log(ar3.slice(-2,5))//im so confused by this
-    console.log(ar3.splice(10,20))
-    console.log(ar3.splice(-2,5))//and this
+    console.log(ar3)
+    ar3.splice(10,20)
+    console.log(ar3)
+    ar3.splice(-2,5)//and this
+    console.log(ar3)
+    ar3.splice(-10,0,toBeAdded)
+    console.log(ar3)
+    ar3.splice(1,2,toBeAdded)
+    console.log(ar3)
+    //car3.splice(100,1,toBeAdded) // exception referenceError
+    console.log(ar3)
+
 
     //foreach that changes array inside
     var ar4 = [1,2,3,4,5,6,7,8,9,10]

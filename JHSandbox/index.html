@@ -7,6 +7,7 @@
     <script src="controlSandbox.js"></script>
     <script src="jsonSandbox.js"></script>
     <script src="domSandbox.js"></script>
+    <script src="cssManipulationSandbox.js"></script>
     <script>
 //        objectsSandbox functions
 //        objectCreation();
@@ -18,7 +19,7 @@
 //        functionSandbox();
 //        variablesSandbox();
 //        parametersSandbox();
-//        arraysSandbox();
+        arraysSandbox();
 //        associativeSandbox();
 //        jsonSandbox()
     </script>
@@ -28,6 +29,9 @@
     <h1>
         Sandbox Code
     </h1>
+    <h2>
+        Dom Manipulation
+    </h2>
     <div id="createElementDiv">
         <button onclick="createElementSandbox()">createElement</button>
     </div>
@@ -56,6 +60,20 @@
             <div>Second Div</div>
         </div>
     </div>
+
+    <h2>
+        CSS manipulation
+    </h2>
+    <div>
+        <button onclick="changeCSS()">Change Color</button>
+    </div>
+    <div>
+        <button onclick="opacityPlus()">Raise Opacity</button>
+    </div>
+    <div>
+        <button onclick="opacityMinus()">Lower Opacity</button>
+    </div>
+    <div id="cssDiv" style="height: 200px; width:200px; background: black; opacity:.5"></div>
 </main>
 </body>
 </html>
