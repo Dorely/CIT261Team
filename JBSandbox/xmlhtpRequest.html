@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <header>
+        <h1>Stringify</h1>
+        <nav>
+            <a href="index.html">Home Page</a>
+        </nav>
+    </header>
+    <body>
+        <script>
+            // Add button click event handler 
+            function addButtonClick()
+            {
+                // Retrieve element 
+                var leftnumber = document.getElementById('txbFirstNumber').value.trim();
+                var rightnumber = document.getElementById('txbSecondNumber').value.trim();
+                var resultSpan = document.getElementById('SpanResult');
+
+
+                // Validate input number 
+                if (leftnumber == "" || rightnumber == "")
+                {
+                    writeError("Error: left number or right number can not be null");
+                    return;
+                }
+
+
+                if (isNaN(leftnumber) || isNaN(rightnumber))
+                {
+                    writeError("Error: please input number");
+
+
+                    // Clear error input 
+                    document.getElementById('txbFirstNumber').value = "";
+                    document.getElementById('txbSecondNumber').value = "";
+                    return;
+                }
+
+
+                var baseURI = "http://localhost:45573/AddService.svc/Add";
+                var leftnumber = document.getElementById('txbFirstNumber').value.trim();
+                var rightnumber = document.getElementById('txbSecondNumber').value.trim();
+                WinJS.xhr({
+                    type: "post",
+                    url: baseURI,
+                    headers: {"Content-type": "application/json"},
+                    data: '{"Number1":' + leftnumber + ',"Number2":' + rightnumber + '}'
+                }).then(function (r) {
+                    if (eval('(' + r.responseText + ')').error != null) {
+                        var result = eval('(' + r.responseText + ')').error;
+                        resultSpan.style.color = "red";
+                        resultSpan.innerHTML = result;
+                    } else {
+                        var result = JSON.parse(eval('(' + r.responseText + ')').AddResult);
+                        resultSpan.style.removeAttribute("color");
+                        resultSpan.innerHTML = result;
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
