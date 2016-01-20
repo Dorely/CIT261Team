@@ -17,3 +17,6 @@ inElement[0].style.backgroundColor = "#000000"
 //nasty path
 //inElement.style.width 
 //results in an error because document.getElementsByClassName() returns an array
+
+//inElement[] // undefiend
+//inElement[1] // undefiend because it's out of scope for this code.
