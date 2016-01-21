@@ -32,13 +32,13 @@ and open the template in the editor.
         <script>
 //            the following set of lines are HappyPath code
 //            this is an example of JSON syntax
-            var view = '{ "team":[' +
+            var teamMember = '{ "team":[' +
                     '{"firstName":"Jonathan", "lastName":"Bonin"},' +
                     '{"firstName":"Jonathan", "lastName":"Harmon"},' +
                     '{"firstName":"Andrew", "lastName":"Thurman"}]}';
 
 //           The following set of lines I found along with JSON, but unsure why it is symentically different
-            var newView = {"team": [
+            var teamAssociateArray = {"team": [
                     {"firstname": "Jonathan", "lastname": "Bonin"},
                     {"firstname": "Jonathan", "lastname": "Harmon"},
                     {"firstname": "Andrew", "lastname": "Thurman"}
@@ -46,38 +46,42 @@ and open the template in the editor.
             };
 
 
-//            this is an example of NastyPath. It doesnt work correctly
-//            document.write(view);
+//            this is an example of NastyPath.
+            console.log(teamMember);
 
-//            Here is another example of a nasty path
-//            document.write(JSON.parse(view));
+//            Here is another example of a happy path
+            console.log(JSON.parse(teamMember));
+            
+            //            Here is another example of a happy path
+            console.log(JSON.parse(null));
+            console.log(JSON.parse(''));
 
 //            The following is also nasty path
-//            var obj = JSON.parse(view);
-//            document.write(obj);
+            var obj = JSON.parse(teamMember);
+            console.log(obj);
 
 //            The follwoig code is HappyPath. 
 //            Although it does not display all of the values. 
-//            This was copied from the internet
-//            obj = JSON.parse(view);
-//            document.getElementById("demo").innerHTML =
-//            obj.team[1].firstName + " " + obj.team[1].lastName;
+            This was copied from the internet
+            obj = JSON.parse(teamMember);
+            document.getElementById("demo").innerHTML =
+            obj.team[1].firstName + " " + obj.team[1].lastName;
 
 //            The following is NastyPath
-//            for(var i = 0; i < view.length; i++){
-//            obj = JSON.parse(view);
-//            document.getElementById("demo").innerHTML =
-//            obj.team[i].firstName + " " + obj.team[i].lastName;
-//            }
+            for(var i = 0; i < teamMember.length; i++){
+            obj = JSON.parse(teamMember);
+            document.getElementById("demo").innerHTML =
+            obj.team[i].firstName + " " + obj.team[i].lastName;
+            }
 
 
 //            The following is HappyPath 
 //            This set of lines displays what is in the variable called team (next two lines are debugging)
 //                  console.log(obj);
 //                  console.log(obj.team.length);
-            obj = JSON.parse(view);
+            obj = JSON.parse(teamMember);
             for (var i = 0; i < obj.team.length; i++) {
-                document.write(obj.team[i].firstName + ' ' + obj.team[i].lastName + "<br>");
+                console.log(obj.team[i].firstName + ' ' + obj.team[i].lastName + "<br>");
             }
 
 
@@ -87,3 +91,7 @@ and open the template in the editor.
         </script>
     </body>
 </html>
+empty string
+string
+almost JSON(last character missing)
+parse something not a string (array, number, anyhing else)

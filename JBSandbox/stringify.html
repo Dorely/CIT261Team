@@ -32,33 +32,34 @@ and open the template in the editor.
         <script>
 
             //The following three blocks are one example (vat contact and var memberfilter and var jsonText). it's from the internet
-//            var contact = new Object();
-//            contact.firstname = "Jesper";
-//            contact.surname = "Aaberg";
-//            contact.phone = ["555-0100", "555-0120"];
-//            contact.nastypath1 = "";            //this is me trying to break the code but it still working (dang it)
-//            contact.nastypath2 = "null";        //this is me trying to break the code but it still working (dang it)
-//            contact.nastypath3 = null;          //this is me trying to break the code but it still working (dang it)
-//            contact.nastypath4 = "It works!";   //This is a good nasty path because it does not refer back to the actuall thing. "typing error"
+            var contact = new Object();
+            contact.firstname = "Jesper";
+            contact.surname = "Aaberg";
+            contact.phone = ["555-0100", "555-0120"];
+            contact.nastypath1 = "";            //this is me trying to break the code but it still working (dang it)
+            contact.nastypath2 = "null";        //this is me trying to break the code but it still working (dang it)
+            contact.nastypath3 = null;          //this is me trying to break the code but it still working (dang it)
+            contact.nastypath4 = "It works!";   //This is a good nasty path because it does not refer back to the actuall thing. "typing error"
 //
-//            var memberfilter = new Array();
-//            memberfilter[0] = "firstname";
-//            memberfilter[1] = "surname";
-//            memberfilter[2] = "phone";
-//            memberfilter[3] = "nastypath1";     //this is me trying to break the code but it still working (dang it)
-//            memberfilter[4] = "nastypath2";     //this is me trying to break the code but it still working (dang it)
-//            memberfilter[5] = "nastypath3";     //this is me trying to break the code but it still working (dang it)
-//            memberfilter[6] = "";               //This is a good nasty path because it does not refer back to the actuall thing. "typing error"
+            var memberFilter = new Array();
+            memberFilter[0] = "firstname";
+            memberFilter[1] = "surname";
+            memberFilter[2] = "phone";
+            memberFilter[3] = "nastypath1";     //this is me trying to break the code but it still working (dang it)
+            memberFilter[4] = "nastypath2";     //this is me trying to break the code but it still working (dang it)
+            memberFilter[5] = "nastypath3";     //this is me trying to break the code but it still working (dang it)
+            memberFilter[6] = "";               //This is a good nasty path because it does not refer back to the actuall thing. "typing error"
 
-//            var jsonText = JSON.stringify(contact, memberfilter, "\t");
-//            document.write(jsonText);
+//          This is a happy path
+            var jsonText = JSON.stringify(memberFilter);
+            console.log(jsonText);
 
 //          The following is nasty path. The innerHTML breaks the whole page
 //          Also is nasty path because string is spelled strng. The return is null
 //            var car = document.getElementById("strng").innerHTML=
 //            console.log(jsonText);
 //            var jsonText = JSON.stringify(car);
-//            document.write(jsonText);
+//            console.log(jsonText);
 
 //            The follwing is also nasty path
 //            var blart;
@@ -66,19 +67,21 @@ and open the template in the editor.
 //            console.log("string");
 //            console.log(jsonText);
 //            var jsonText = JSON.stringify(car);
-//            document.write(jsonText);
-
-            var car = new Object();
-            car.name = "me";
-            car.color = "red";
-            var jsonText = JSON.stringify(car);
-            document.write(jsonText + '<br>');
-
-            var car = document.getElementById("string").innerHTML;
-//            console.log(car);
-            var jsonText = JSON.stringify(car);
 //            console.log(jsonText);
-            document.write(jsonText);
+
+//            var car = new Object();
+//            car.name = "me";
+//            car.color = "red";
+//            var jsonText = JSON.stringify(car);
+//            console.log(jsonText + '<br>');
+//
+//            var car = document.getElementById("string").innerHTML;
+////            console.log(car);
+//            var jsonText = JSON.stringify(car);
+////            console.log(jsonText);
+//            console.log(jsonText);
         </script>
     </body>
 </html>
+<!--passed stringigy null what happens?
+passed stringigy a string what happens?-->
