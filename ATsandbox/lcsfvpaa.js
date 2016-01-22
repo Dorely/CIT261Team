@@ -1,7 +1,13 @@
+var x = 0
+
+//nasty path 
+// var x = 4h
+// can't start a var with a number
+
 function loop() {
     var text = ""
     
-    for(var i = 1; i <= 10; i++ ){
+    for(var i = 1; i <= 10; i++){
         text += i + "<br>"
     }
     display(text)
