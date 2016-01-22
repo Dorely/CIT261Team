@@ -85,7 +85,7 @@ function insertBeforeSandbox(){
     i++
 
     //nasty path bad inputs
-    parentElement.insertBefore(element,null)// no error just does nothing
+    //parentElement.insertBefore(element,null)// no error just does nothing
     //parentElement.insertBefore(null,childElement) // throws type error
     //parentElement.insertBefore(null,null) //throws type error
 
@@ -134,6 +134,7 @@ function replaceChildSandbox(){
     console.log(firstChild)
     console.log(newElement)
 
+    //happy path works
     parentElement.replaceChild(newElement,firstChild)
 
     //nasty path swapping incorrectly
