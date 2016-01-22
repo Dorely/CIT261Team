@@ -32,8 +32,13 @@ function loop() {
     }
     display(text)
 }
-// for each loop
 
+var sum = 0
+var list = [1,3,7,5,9]
+list.forEach(function(value, index){
+    sum += value
+})
+console.log(sum)
 
 function wLoop(){
     var num = 1
@@ -104,6 +109,7 @@ function add(){
     words.push(document.getElementById("wordField").value)
 }
 
+// van push nulls
 words.push(null)
 console.log(words)
 

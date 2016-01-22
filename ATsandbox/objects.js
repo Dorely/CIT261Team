@@ -56,7 +56,6 @@ Car.prototype.rev = function(){
 
 
 
-
 // an object name Truck
 function Truck(year, make, model) {
     this.sound = "VRUUUM"
@@ -64,6 +63,8 @@ function Truck(year, make, model) {
     Vehicle.call(this, year, make, model)
    
 }
+
+
 
 //Create Car that inherits from Vehcile
 Truck.prototype = Object.create(Vehicle.prototype)
@@ -78,9 +79,6 @@ Truck.prototype.rev = function(){
 
 
 
-
-
-
 // createing a the new Car object
 var myCar = new Car(1991, "Cadillac", "DeVille");
 myCar.trunOn()
@@ -90,23 +88,19 @@ var myTruck = new Truck(1995, "Dodge", "Sport Dakota")
 myTruck.trunOn()
 myTruck.rev()
 
-//Nasty
-// function will not run without the ()
-// objB.bar
-
 
 //nasty path
 var car = new Car();
 // this is bad due to the fact the constructor is set and there was nothing was being passed
 
 // nasty path
-function Car(year, make, model) {
+function Bike(year, make, model) {
     this.sound = "VRRRRRM"
     this.type = "Car"
-    Vehicle.call(this, year, make, model)
+    Vehicle.call(year, make, model)
   
 }
-// without the right this in the param BIKE
+// without the right this in the param
 
 // for each loop pass a car as the container portion
 
@@ -119,13 +113,6 @@ function Car(year, make, model) {
 
 //nasty
 // making a new method for an object before the line 120 doesn't work becasue the object is not yet created
-//function Truck(year, make, model) {
-//    this.sound = "VRUUUM"
-//    this.type = "Truck"
-//    Vehicle.call(this, year, make, model)
-//   
-//}
-//
 //Truck.prototype.rev = function(){
 //     console.log(this.type + " goes " + this.sound)
 //}
