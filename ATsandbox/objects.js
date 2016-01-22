@@ -16,7 +16,7 @@ objB.bar()
 
 // Another way creating objects and inheritance.
 // an object with a constructor
-var Vehicle = function (year, make, model) {
+function Vehicle(year, make, model) {
     this.year = year
     this.make = make
     this.model = model
@@ -96,8 +96,20 @@ myTruck.rev()
 
 
 //nasty path
-    //var car = new Car();
+var car = new Car();
 // this is bad due to the fact the constructor is set and there was nothing was being passed
+
+// nasty path
+function Car(year, make, model) {
+    this.sound = "VRRRRRM"
+    this.type = "Car"
+    Vehicle.call(this, year, make, model)
+  
+}
+// without the right this in the param BIKE
+
+// for each loop pass a car as the container portion
+
 
 //nasty path
 //Vehicle.prototype.rev = function(){

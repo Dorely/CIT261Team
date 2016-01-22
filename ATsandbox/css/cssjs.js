@@ -15,8 +15,8 @@ inElement[0].style.height = "300px"
 inElement[0].style.backgroundColor = "#000000"
 
 //nasty path
-inElement.style.width = "300px"
+//inElement.style.width = "300px"
 //results in an error because document.getElementsByClassName() returns an array
 
-inElement[] // undefiend
-inElement[1] // undefiend because it's out of scope for this code.
+//inElement[].style // undefiend
+//inElement[1].style // undefiend because it's out of scope for this code.

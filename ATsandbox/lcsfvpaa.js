@@ -1,8 +1,28 @@
 var x = 0
 
 //nasty path 
-// var x = 4h
-// can't start a var with a number
+//var 4h
+// var can't start a var with a number
+
+//happy
+console.log(simple(5))
+
+// nasty path
+console.log(simple())
+// no params nothing will be added
+
+//happy path continues
+function simple(foo){
+    var sum = foo + 2
+    return sum
+}
+
+console.log(noParams("Target", 5, true))
+
+function noParams(){
+    return arguments[0]
+}
+// make another function with no params but pass some to it anyway
 
 function loop() {
     var text = ""
@@ -12,6 +32,8 @@ function loop() {
     }
     display(text)
 }
+// for each loop
+
 
 function wLoop(){
     var num = 1
@@ -22,6 +44,8 @@ function wLoop(){
         i++
     }
 }
+
+
 
 function display(text){
     document.getElementById("loopView").innerHTML = text
@@ -38,7 +62,15 @@ function condition(){
     else{
         document.getElementById("showCondition").innerHTML = "No Bool"
     }
+    
+    // nasty path
+    if (cond = "true"){
+        console.log("won't get here")
+    }
+    // single equals
+    
 }
+
 
 function switchCon(){
     var cond = document.getElementById("ifCon").value;
@@ -53,12 +85,50 @@ function switchCon(){
             document.getElementById("showCondition").innerHTML = "No Bool"
             break;
     }
+    // nasty path
+    switch(cond){
+     case "true":
+            document.getElementById("showCondition").innerHTML = "True";           
+        case "false":
+            document.getElementById("showCondition").innerHTML = "False"
+            break
+        default:
+            document.getElementById("showCondition").innerHTML = "No Bool"
+    }
+    // no breaks
+
 }
 
 var words = [];
 function add(){
     words.push(document.getElementById("wordField").value)
 }
+
+words.push(null)
+console.log(words)
+
+words = []
+words = [1,2,3,4,5]
+
+//nasty path
+words.splice(20, 0, "insert")
+// this doesn't insert at the specifed index it rather puts it at the end of the array
+console.log(words)
+console.log(words[20], words[5])
+
+// this isn't bad but it inserts the string at the thrid from the last index position
+words.splice(-3, 0, "negative")
+console.log(words)
+console.log(words.length)
+
+words = ["hello", "world", "nice", "to", "see", "you"]
+console.log("Before shift()" , words)
+console.log("During shift()" , words.shift())
+console.log("After shift()" , words)
+
+console.log("Before unshift()" , words)
+words.unshift("HELLO")
+console.log("After unshift()" , words)
 
 function clearArray(){
     words = []
@@ -75,12 +145,21 @@ function showArray(){
     }
     else{
         var text = ""
-        for(var i = 0; i < words.length; i++ ){
+        for(var i = 0; i < words.length; i++){
             text += words[i] + "<br>"  
         }
         document.getElementById("arrayDisplay").innerHTML = text
         document.getElementById("arrayDisplayToString").innerHTML = words.toString()
     }
+}
+
+//nasty path
+{
+    var text = ""
+    for(var i = 0; i < words.length; i++){
+        text += " " + words[i]  
+    }
+    console.log(text)
 }
 
 function popout(){
@@ -118,27 +197,11 @@ console.log(cats.fred)
 console.log(cats.Bob)
 console.log(cats.temp)
 
-// Inheritance
-var objA = Object.create(cats);
-
-console.log(objA.Bob);
-
-//nasty path
-// for getting brackets on a function
-
 // nasty path
     //for(;;) while result in a forever loop
 
-// nasty path
-    // diplay(text) there is no function named that
-    // or giving it passing a null will print nothing. 
-
 //nasty path
-    // while(true) will need a break. no good programming
-
-//nasty path
-// function display() no paramater will never be called.
-
+    // while(true) will need a break. not good programming
 
 //Bad path
         // for(i = 0; i <= words.length; i++) 
