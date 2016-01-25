@@ -84,21 +84,32 @@ function ajaxNastyPath(){
 
 function ajaxNastyPath2(){
     //nasty path giving a bad URL
+    var data = "http://api.openweathermap.org/data/2.5/weather?zip=83440,us&appid=44db6a862fba0b067b1930da0d769e98"; //good one
     //var data = "http://google.com"; //cross origin dissallowed
     //var data = "http://www.byui.edu"; //returns part of the webpage's html
     //var data = ""; //really strange - returns my own pages html
-    var data = null; //returns error BAD URI
+    //var data = null; //returns error BAD URI
+    //var data = "http://api.openweathermap.org/somethingThatDoesntExist" //a good URL but a file that doesnt exist - returns same as null
+    //var data = "http://somebadurl" //what to get if you give it a bad URL that does not exist - doesnt do anything
+
     var http_request = new XMLHttpRequest();
 
     //nasty trying different ready codes
     http_request.onreadystatechange = function () {
 
         if (http_request.readyState == 4) {
+            console.log("Nasty Path 2")
             console.log(http_request.responseText)
         }
     };
 
-    http_request.open("GET", data, true);
+    //http_request.open("GET", data, true); //good one
+    //http_request.open("GO", data, true); // bad argument for method - results in cross origin request block
+    //http_request.open(null, data, true); // null argument for method - results in cross origin request block
+    //http_request.open("POST", data, true); // using post but with a get URL - this worked just fine
+    http_request.open("", data, true); // bad argument for method - NS_ERROR_ILLEGAL_VALUE
     http_request.send();
+
+    //nasty paths for open, bad input etc
 
 }

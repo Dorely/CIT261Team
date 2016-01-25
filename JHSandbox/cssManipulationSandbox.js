@@ -10,6 +10,14 @@ function changeCSS(){
 
 }
 
+function changeCSSNasty(){
+    //nasty path try nulls on things
+    var element = document.getElementById("cssDiv")
+    element.style.background = null // just erases things
+    element.style.opacity = null // erases opacity and it becomes 0 when I begin trying to operate on it again
+
+}
+
 function opacityPlus(){
     var element = document.getElementById("cssDiv")
     currentOpacity = Number(element.style.opacity)

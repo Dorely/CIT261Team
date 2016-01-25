@@ -25,6 +25,20 @@ function jsonSandbox(){
         console.log(e.toString())
     }
 
+    //nasty path parsing null
+    console.log(JSON.parse(null))//just prints null no exception thrown
+
+    //nasty path malformed JSON
+    var badJsonString = '{ "array":[' +
+        '{"key1":"value1", "key2":"value2"},' +
+        '{"key1":"value3", "key2":"value4"},'+
+        '{"key1":"value5", "key2":"value6"}}';//left out the arrays closing brace
+    try{
+        console.log(JSON.parse(badJsonString))
+    }catch(e){
+        console.log(e.toString())
+    }
+
     //happy path stringify
 
     var jsonObject = { "array":[
