@@ -2,14 +2,38 @@
 <html>
     <head>
         <title>CSS Sandbox code</title>
-       
+        <script src="/ATsandbox/cssajaxdom/dom.js"></script>
     </head>
     
     <body id="area">
        <button onclick="change()">Change background</button>
         <div class="inside">
         </div>
+        <div><button onclick="createElem()">Create Element</button></div>
         
-    </body>
-     <script src="/ATsandbox/css/cssjs.js"></script>
+        <div id="parent">
+            <div id="child">
+                <button onclick="inBefore()">Insert Before Element</button>
+            </div>
+            <button onclick="append()">Append Child Element</button> 
+        </div>
+        
+        <div><button onclick="removeEl()">Remove Element</button></div>
+        <div><button onclick="replace()">Replace Element</button></div>
+        <br>
+        <div id="rmParent">
+            <div>
+                this is in a div
+            </div>
+             <div>
+                this is in a div
+            </div>
+             <div>
+                this is in a div
+            </div>
+             <div>
+                this is in a div
+            </div>
+        </div>
+     <script src="/ATsandbox/cssajaxdom/cssjs.js"></script>
 </html>

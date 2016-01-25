@@ -102,8 +102,12 @@ function Bike(year, make, model) {
 }
 // without the right this in the param
 
+//nasy path 
 // for each loop pass a car as the container portion
-
+console.log(Car.length)
+for (var i = 0; i < Car.length; i++){
+    console.log(Car[i])   
+}
 
 //nasty path
 //Vehicle.prototype.rev = function(){
