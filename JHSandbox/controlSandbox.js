@@ -344,8 +344,8 @@ function arraysSandbox(){
     //demonstrating foreach loop
     var ar3 = ["One","Two","Three","Four","Five"]
 
-    ar3.forEach(function(element,index,array){//accepts up to these three arguments but as few as one
-        console.log(element+" "+index+" "+array.toString())
+    ar3.forEach(function(value,index,array){//accepts up to these three arguments but as few as one
+        console.log(value+" "+index+" "+array.toString())
     })
 
     //remove item[s] by index with splice

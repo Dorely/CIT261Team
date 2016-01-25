@@ -19,7 +19,7 @@ function opacityPlus(){
     }
 
     //nasty path
-    //element.style.opacity+=.1
+    //element.style.opacity = element.style.opacity * 1 +.1
     // this doesnt work because element.style.[attribute] returns a string value and "+" contatenates instead of math
 }
 
