@@ -17,10 +17,11 @@ function simple(foo){
     return sum
 }
 
-console.log(noParams("Target", 5, true))
+// happy path NO PARAMATERS
+console.log(noParams(5,6))
 
 function noParams(){
-    return arguments[0]
+    return arguments[0] + arguments[1]
 }
 // make another function with no params but pass some to it anyway
 
@@ -127,6 +128,7 @@ words.splice(-3, 0, "negative")
 console.log(words)
 console.log(words.length)
 
+// happy path shifting
 words = ["hello", "world", "nice", "to", "see", "you"]
 console.log("Before shift()" , words)
 console.log("During shift()" , words.shift())
@@ -168,6 +170,7 @@ function showArray(){
     console.log(text)
 }
 
+// happy path
 function popout(){
     words.pop()  
 }
@@ -186,7 +189,7 @@ cats["Bob"] = "gray"
 console.log(cats.fred)
 console.log(cats['fred'])
 console.log(cats.Bob)
-console.log(cats['Bob']) // doublt qoutes work too
+console.log(cats['Bob']) // double qoutes work too
 
 //deletling is easy
 delete cats.fred
