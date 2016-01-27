@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="objectsSandbox.js"></script>
-    <script src="controlSandbox.js"></script>
-    <script src="jsonSandbox.js"></script>
-    <script src="domSandbox.js"></script>
-    <script src="cssManipulationSandbox.js"></script>
-    <script src="ajaxSandbox.js"></script>
+    <!--<script src="objectsSandbox.js"></script>-->
+    <!--<script src="controlSandbox.js"></script>-->
+    <!--<script src="jsonSandbox.js"></script>-->
+    <!--<script src="domSandbox.js"></script>-->
+    <!--<script src="cssManipulationSandbox.js"></script>-->
+    <!--<script src="ajaxSandbox.js"></script>-->
+    <!--<script src="localStorageSandbox.js"></script>-->
+    <script src="eventsSandbox.js"></script>
     <script>
 //        objectsSandbox functions
 //        objectCreation();
@@ -22,65 +24,70 @@
 //        parametersSandbox();
 //        arraysSandbox();
 //        associativeSandbox();
-        jsonSandbox()
+//        jsonSandbox()
 //        ajaxSandbox()
 //        ajaxNastyPath()
 //        ajaxNastyPath2()
+//        localStorageSandbox()
     </script>
 </head>
-<body>
+<body id="body" onload="toCallOnLoad()">
 <main>
-    <h1>
-        Sandbox Code
-    </h1>
-    <h2>
-        Dom Manipulation
-    </h2>
-    <div id="createElementDiv">
-        <button onclick="createElementSandbox()">createElement</button>
-    </div>
-    <div id="appendChildDiv">
-        <button onclick="appendChildSandbox()">appendChild</button>
-    </div>
-    <div id="insertBeforeDiv">
-        <div id="insertInnerDiv">
-            <button onclick="insertBeforeSandbox()">insertBefore</button>
-        </div>
-    </div>
-    <div id="removeChildDiv">
-        <div id="removeInnerDiv">
-            <button onclick="removeChildSandbox()">removeChild</button>
-        </div>
-        <div>First Div</div>
-        <div>Second Div</div>
-        <div>Third Div</div>
-    </div>
-    <div id="replaceChildDiv">
-        <div>
-            <button onclick="replaceChildSandbox()">replaceChild</button>
-        </div>
-        <div id="replaceInnerDiv">
-            <div>First Div</div>
-            <div>Second Div</div>
-        </div>
-    </div>
+    <!--<h1>-->
+        <!--Sandbox Code-->
+    <!--</h1>-->
+    <!--<h2>-->
+        <!--Dom Manipulation-->
+    <!--</h2>-->
+    <!--<div id="createElementDiv">-->
+        <!--<button onclick="createElementSandbox()">createElement</button>-->
+    <!--</div>-->
+    <!--<div id="appendChildDiv">-->
+        <!--<button onclick="appendChildSandbox()">appendChild</button>-->
+    <!--</div>-->
+    <!--<div id="insertBeforeDiv">-->
+        <!--<div id="insertInnerDiv">-->
+            <!--<button onclick="insertBeforeSandbox()">insertBefore</button>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div id="removeChildDiv">-->
+        <!--<div id="removeInnerDiv">-->
+            <!--<button onclick="removeChildSandbox()">removeChild</button>-->
+        <!--</div>-->
+        <!--<div>First Div</div>-->
+        <!--<div>Second Div</div>-->
+        <!--<div>Third Div</div>-->
+    <!--</div>-->
+    <!--<div id="replaceChildDiv">-->
+        <!--<div>-->
+            <!--<button onclick="replaceChildSandbox()">replaceChild</button>-->
+        <!--</div>-->
+        <!--<div id="replaceInnerDiv">-->
+            <!--<div>First Div</div>-->
+            <!--<div>Second Div</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-    <h2>
-        CSS manipulation
-    </h2>
-    <div>
-        <button onclick="changeCSS()">Change Color</button>
-    </div>
-    <div>
-        <button onclick="changeCSSNasty()">Nasty Path</button>
-    </div>
-    <div>
-        <button onclick="opacityPlus()">Raise Opacity</button>
-    </div>
-    <div>
-        <button onclick="opacityMinus()">Lower Opacity</button>
-    </div>
-    <div id="cssDiv" style="height: 200px; width:200px; background: black; opacity:.5"></div>
+    <!--<h2>-->
+        <!--CSS manipulation-->
+    <!--</h2>-->
+    <!--<div>-->
+        <!--<button onclick="changeCSS()">Change Color</button>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<button onclick="changeCSSNasty()">Nasty Path</button>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<button onclick="opacityPlus()">Raise Opacity</button>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<button onclick="opacityMinus()">Lower Opacity</button>-->
+    <!--</div>-->
+    <!--<div id="cssDiv" style="height: 200px; width:200px; background: black; opacity:.5"></div>-->
+    <div class="colorDiv" id="blueDiv" style="height:200px;width:200px;background:blue;"></div><br>
+    <div class="colorDiv" id="redDiv" style="height:200px;width:200px;background:red;"></div><br>
+    <div class="colorDiv" id="greenDiv" style="height:200px;width:200px;background:green;"></div>
+
 </main>
 </body>
 </html>
