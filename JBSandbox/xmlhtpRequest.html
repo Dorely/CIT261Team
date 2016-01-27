@@ -6,17 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
             function loadJSON() {
-                var data = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=2de143494c0b295cca9337e1e96b00e0";
+                var data = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98";
                 var http_request = new XMLHttpRequest();
                 http_request.onreadystatechange = function () {
 
                     if (http_request.readyState == 4) {
+                        console.log(http_request.responseText);
 //                        Javascript function JSON.parse to parse JSON data
                         var jsonObj = JSON.parse(http_request.responseText);
 
 //                       jsonObj variable now contains the data structure and can be accessed as jsonObj.name and jsonObj.country.
                         document.getElementById("DisplayCity").innerHTML = jsonObj.name;
-                        document.getElementById("DisplayWeather").innerHTML = jsonObj.[0].description;
+                        document.getElementById("DisplayWeather").innerHTML = jsonObj.weather[0].description;
                     }
                 };
 

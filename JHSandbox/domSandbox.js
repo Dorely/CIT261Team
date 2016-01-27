@@ -39,6 +39,9 @@ function createElementSandbox(){
     var badTextNode = document.createTextNode(element) //works just doesnt do much
     console.log(badTextNode)
 
+    //what happens in createelement if you pass null
+
+
 }
 
 function appendChildSandbox(){
@@ -67,6 +70,20 @@ function appendChildSandbox(){
 
     //nasty path innerHtml overwriting appended divs
     //currentDiv.innerHTML = "new content" //this not only overwrites everything just appended, it also overwrites the button
+
+    //nasty path appending null
+    try{
+        currentDiv.appendChild(null)
+    }catch(e){
+        console.log(e)
+    }
+    //append something to some element, then append that second element to something else
+    var newElement = document.createElement("span")
+    newElement.innerHTML = "Span element"
+    currentDiv.appendChild(newElement)
+    var nextDiv = currentDiv.lastElementChild
+    nextDiv.appendChild(newElement) //this appears as if it is just getting ignored
+
 }
 
 var i = 1
@@ -83,11 +100,6 @@ function insertBeforeSandbox(){
 
     parentElement.insertBefore(element,childElement)
     i++
-
-    //nasty path bad inputs
-    //parentElement.insertBefore(element,null)// no error just does nothing
-    //parentElement.insertBefore(null,childElement) // throws type error
-    //parentElement.insertBefore(null,null) //throws type error
 
     //nasty path using a node thats not a child
     var outOfScopeElement = document.getElementById("createElementDiv")
@@ -107,6 +119,20 @@ function insertBeforeSandbox(){
     }catch(e){
         console.log(e.toString())
     }
+
+    //nasty path bad inputs - move these to the end and console log things
+    //console.log(parentElement.insertBefore(element,null))// no error just does nothing - had to remove as it messed up my happy path
+    try{
+        //parentElement.insertBefore(null,childElement) // throws type error
+    }catch(e){
+        console.log(e)
+    }
+
+    try{
+        //parentElement.insertBefore(null,null) //throws type error
+    }catch(e){
+        console.log(e)
+    }
 }
 
 function removeChildSandbox(){
@@ -115,11 +141,30 @@ function removeChildSandbox(){
     var childElement = parentElement.lastElementChild //removing last child each time this is pressed. this will eventually reach the button child
     parentElement.removeChild(childElement)
 
-    //nasty path trying other inputs
-    //parentElement.removeChild(null)//throws TypeError
-    //parentElement.removeChild(parentElement)//throws NotFoundError
-    //childElement = document.createElement("span")
-    //parentElement.removeChild(childElement)//NotFoundError
+    //nasty path trying other inputs - change to try catch
+    try{
+        parentElement.removeChild(null)//throws TypeError
+    }catch(e){
+        console.log(e.toString())
+    }
+
+    try{
+        parentElement.removeChild(parentElement)//throws NotFoundError
+    }catch(e){
+        console.log(e.toString())
+    }
+
+    try{
+        childElement = document.createElement("span")
+    }catch(e){
+        console.log(e.toString())
+    }
+
+    try{
+        parentElement.removeChild(childElement)//NotFoundError
+    }catch(e){
+        console.log(e.toString())
+    }
 
 }
 
