@@ -5,30 +5,30 @@
 
 //happy path onload being called from inline event call in html
 function toCallOnLoad(){
-    console.log("Body Loaded")
+    console.log("Body Loaded");
     //including the rest of my code inside this makes sure that the elements I am trying to interact with actually exist
-    var divs = document.getElementsByClassName("colorDiv")
-    console.log(divs)
-    console.log(divs.length)
+    var divs = document.getElementsByClassName("colorDiv");
+    console.log(divs);
+    console.log(divs.length);
 
     //happy path adding touchstart event listener to my divs
     for(var i =0;i<divs.length;i++){
-        console.log(divs[i])
+        console.log(divs[i]);
         divs[i].addEventListener("touchstart",function(event){
-            console.log("Touch Start Event")
+            console.log("Touch Start Event");
             //console.log(event)
-            console.log(event.touches[0].target.id)
-        })
+            console.log(event.touches[0].target.id);
+        });
     }
 
     //happy path touchend event
     for(var i =0;i<divs.length;i++){
-        console.log(divs[i])
+        console.log(divs[i]);
         divs[i].addEventListener("touchend",function(event){
-            console.log("Touch End Event")
-            console.log(event)
+            console.log("Touch End Event");
+            console.log(event);
             //console.log(event.touches[0].target.id)
-        })
+        });
     }
 
 
