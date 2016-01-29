@@ -103,7 +103,7 @@ function removeEl(){
     // this is both happy and nasty. when there is nothing to delete you 
     // can catch an error
     try{
-    element.removeChild(rm)
+        element.removeChild(rm)
     }catch(e){
         console.log(e)
     }
@@ -127,7 +127,8 @@ function replace(){
     
     // nasty path
     // parentElement.replaceChild(null, null)
-    
+    //parentElement.replaceChild(newElement,null) // or the other way
+    //parentElement.replaceChild(newElement,newElement)
 }
 
 
