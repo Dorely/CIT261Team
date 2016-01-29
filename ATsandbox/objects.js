@@ -108,14 +108,6 @@ console.log(Car.length)
 for (var i = 0; i < Car.length; i++){
     console.log(Car[i])   
 }
-// foreach is not a function for Car object
-try{
-Car.forEach(function(value, index){
-    console.log(value)
-})
-}catch(e){
-    console.log(e)
-}
 
 //nasty path
 //Vehicle.prototype.rev = function(){
@@ -124,7 +116,7 @@ Car.forEach(function(value, index){
 // causes an error that will say type and sound is not delcared. Need "this." before type and sound for it to work
 
 //nasty
-// making a new method for an object before object is not yet created
+// making a new method for an object before the line 120 doesn't work becasue the object is not yet created
 //Truck.prototype.rev = function(){
 //     console.log(this.type + " goes " + this.sound)
 //}
