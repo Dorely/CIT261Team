@@ -31,6 +31,16 @@ function toCallOnLoad(){
         })
     }
 
+    //happy path touchmove event
+    for(var i =0;i<divs.length;i++){
+        console.log(divs[i])
+        divs[i].addEventListener("touchmove",function(event){
+            console.log("Touch Move Event")
+            console.log(event)
+            //console.log(event.touches[0].target.id)
+        })
+    }
+
 
     //var blueDiv = document.getElementById("blueDiv")
     //blueDiv.addEventListener("touchstart",function(event){
