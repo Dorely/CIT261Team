@@ -22,5 +22,5 @@ console.log(jsonString)
 // not haveing a =
 //var foo {
 //    model: "General Motors",
-//    year:    
+//    year:    2005
 //}
