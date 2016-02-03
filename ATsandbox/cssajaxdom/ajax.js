@@ -17,6 +17,8 @@ function makeRequest(){
     {
         xhttp.onreadystatechange = function()
         {
+            // nasty path
+            // if (xhttp.readyState == 2 && xhttp.status == 200) nothing gets done
             if (xhttp.readyState == 4 && xhttp.status == 200)
             {
                 console.log(xhttp.responseText)
@@ -27,13 +29,15 @@ function makeRequest(){
                 console.log("Server responded with a 404")
             }
         }
-        xhttp.open("GET", "http://www.byui.edu", true)
+        xhttp.open("GET", "/ATsandbox/triggereventstorage/atse.html", true)
         xhttp.send();
         //nasty path
         // having a bad path
-        xhttp.open("GET", "bla bla", true)
-        xhttp.send()
-        
+       // xhttp.open("GET", "bla bla", true)
+       // xhttp.open("GET", null, true)
+        // first agruement missing or bad
+       // xhttp.open( "", "/atse.html", true)     
+        // xhhtp.open( null , "http://www.byui.edu", true)
         
     }
     else

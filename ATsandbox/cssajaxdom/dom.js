@@ -120,16 +120,11 @@ function replace(){
     console.log(newElement)
     
     parentElement.replaceChild(newElement, child)
-    
-<<<<<<< HEAD
+
     // nasty path
     // parentElement.replaceChild(null, null)
     //parentElement.replaceChild(newElement,null) // or the other way
     //parentElement.replaceChild(newElement,newElement)
-=======
-    
-    
->>>>>>> 90f945359b4e5258cf1a95c806065f72894b5761
 }
 
 

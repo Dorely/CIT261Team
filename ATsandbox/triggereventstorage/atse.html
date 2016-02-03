@@ -2,14 +2,21 @@
 <html>
     <head>
         <title>ATSE</title>
-        <script src="antran.js"></script>
+        <script src="animatest.js"></script>
     </head>
     
     <body>
-        <div id="blueBox" style="position: absolute; width:40px; height:40px; background:blue; color: white; text-align: center; left:100px;"></div>
-        <div><button onclick="moveUp()">UP</button></div>
-        <div><button onclick="moveLeft()">LEFT</button></div>
-        <div><button onclick="moveRight()">RIGHT</button></div>
-        <div><button onclick="moveDown()">DOWN</button></div>
+        <div id="blueBox" style="position: absolute; width:40px; height:40px; background:blue; color: white; text-align: center; left:200px;"></div>
+        <div style="padding-right: 10px; padding-left: 30px"><button onclick="moveUp()">UP</button></div>
+        <div><button onclick="moveLeft()">LEFT</button>
+        <button onclick="moveRight()">RIGHT</button></div>
+        <div style="padding-right: 10px; padding-left: 20px"><button onclick="moveDown()">DOWN</button></div>
+        <div id="field" style="height: 200px; border-bottom: 3px black groove; position: relative">
+            <div id="ball" style="position: absolute; width: 40px; 
+                              height: 40px;background: black;
+                              border-radius: 20px;"></div></div>
+        <div><button onclick="drop()">Drop</button><button onclick="dropRight()">Drop to Right</button></div>
+        
     </body>
+    <script src="animate.js"></script>
 </html>
