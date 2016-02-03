@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transforms</title>
+    <style>
+        .bodyDiv{
+            height:200px;
+            width:200px;
+            margin: 50px;
+        }
+
+        /** Happy path defining CSS3 transforms **/
+
+        /** Happy path transform: rotate **/
+        #bodyDiv1{
+            background:red;
+            /*transform: rotate(30deg);*/ /* positive values */
+            /*transform: rotate(-30deg);*//* negative values */
+            animation-duration: 3s;
+            animation-name: animateRotate;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+            animation-timing-function: linear;
+        }
+
+        /** Happy path transform: translate **/
+        #bodyDiv2{
+            background:blue;
+            /*transform: translate(30px,30px);*/ /* using both values for (x,y) */
+            /*transform: translate(45px);*/ /* using just x value */
+            /*transform: translate(-75px);*/ /* Negative values */
+            animation-duration: 3s;
+            animation-name: animateTranslate;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+            animation-timing-function: ease-out;
+        }
+
+        /** Happy path transform: scale **/
+        #bodyDiv3{
+            background:green;
+            /*transform: scale(.5,.5);*/ /* Scales Relative (x,y) */
+            animation-duration: 5s;
+            animation-name: animateScale;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+            animation-timing-function: linear;
+        }
+
+        /** Happy path transform: skew **/
+        #bodyDiv4{
+            background:black;
+            /*transform: skew(15deg,25deg);*/ /* skews (x,y) */
+            animation-duration: 5s;
+            animation-name: animateSkew;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+            animation-timing-function: default;
+        }
+
+        /** Happy path transition declaration **/
+        #bodyDiv5{
+            background:grey;
+            margin-left: 0;
+            transition: margin-left .2s ease-in-out 0s;
+        }
+
+
+        /** Happy path animating transforms **/
+        @keyframes animateRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animateTranslate {
+            from {
+                transform: translate(0px,0px);
+            }
+            65%{
+                transform: translate(50px,50px);
+            }
+            to {
+                transform: translate(0px,0px);
+            }
+        }
+
+        @keyframes animateScale {
+            from {
+                transform: scale(1,1);
+            }
+            25%{
+                transform: scale(2,2);
+            }
+            75%{
+                transform: scale(.5,.5);
+            }
+            to {
+                transform: scale(1,1);
+            }
+        }
+
+        @keyframes animateSkew {
+            from {
+                transform: skew(0deg,0deg);
+            }
+            25%{
+                transform: skew(180deg,90deg);
+            }
+            75%{
+                transform: skew(90deg,45deg);
+            }
+            to {
+                transform: skew(0deg,0deg);
+            }
+        }
+
+    </style>
+    <script>
+
+        //happy path triggering the transform animations
+        function animateStateChange(id){
+            var div = document.getElementById(id)
+
+            //console.log(div.style.animationPlayState);
+
+            if(div.style.animationPlayState == "running"){
+                div.style.animationPlayState = "paused"
+            }else{
+                div.style.animationPlayState = "running"
+            }
+        }
+
+        function triggerTransition(id){
+            var div = document.getElementById(id)
+
+            console.log(div.style.marginLeft);
+
+            if(div.style.marginLeft == '100px'){
+                div.style.marginLeft = 0;
+                console.log(div.style.marginLeft);
+            }else{
+                div.style.marginLeft = '100px';
+                console.log(div.style.marginLeft);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="bodyDiv" id="bodyDiv1" onclick="animateStateChange(this.id)">
+
+</div>
+<div class="bodyDiv" id="bodyDiv2" onclick="animateStateChange(this.id)">
+
+</div>
+<div class="bodyDiv" id="bodyDiv3" onclick="animateStateChange(this.id)">
+
+</div>
+<div class="bodyDiv" id="bodyDiv4" onclick="animateStateChange(this.id)">
+
+</div>
+
+<div class="bodyDiv" id="bodyDiv5" onclick="triggerTransition(this.id)">
+
+</div>
+
+</body>
+</html>

@@ -3,9 +3,15 @@
 
 function localStorageSandbox(){
 
-    //happy path storing simple data
+    //happy path storing simple data - session storage lasts during the session
     sessionStorage.setItem("variable1","value1")
     console.log(sessionStorage.getItem("variable1"))
+
+    //happy path local storage - local storage lasts until deleted
+    localStorage.setItem("variable2","value2")
+    localStorage.getItem("variable2")
+
+    //nasty path local storage - using
 
     //happy path storing an array
     var arr1 = new Array()
