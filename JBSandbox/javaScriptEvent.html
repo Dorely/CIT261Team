@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Events</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function sayHello() {
+                console.log('Call me Maybe!!');
+            }
+
+            function doubleClick() {
+                console.log('Say That Thing YOU Do!!');
+            }
+
+            function goBack() {
+
+            }
+            window.addEventListener('devicelight', function (event) {
+                var html = document.getElementsByTagName('html')[0];
+
+                if (event.value < 50) {
+                    html.classList.add('darklight');
+                    html.classList.remove('brightlight');
+                } else {
+                    html.classList.add('brightlight');
+                    html.classList.remove('darklight');
+                }
+                console.log(html);
+            });
+
+            
+
+            // copy
+            //cut
+            //devicemotion              //devicemotion  //
+            //touchcancel, touchend, touchenter, touchleave, touchmove, touchstart
+            //waiting
+            //video events
+
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>JavaScript Events</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home page</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h2>The onclick function</h2>
+        <p>Click the button to say Hello World in the console log</p>
+        <input type="button" onclick="sayHello()" value="One Click" /><br><br>
+        <p id="demo">
+            The Following button can probably be very helpful. 
+            It replaces this paragraph with the time.
+        </p>
+        <button onclick="getElementById('demo').innerHTML = Date()">The Time is?</button>
+
+        <h2>The dblclick function</h2>
+        <p>Double click this button to display console log</p>
+        <input type ="button" ontouchstart="doubleClick()" value="Double Click"/><br>
+        <p>The hmlhttp request might be another event that can be looked at. (in another file that I have made)</p>
+        <br><br>
+
+        <!--<input type ="button" onclick="goBack()" value="<-">-->
+
+        <!--        <video controls preload="metadata">
+                    <source src ="https://www.youtube.com/watch?v=pwkucsl7ePc" type ="video/mp4">
+                </video>-->
+
+        
+
+    </body>
+</html>

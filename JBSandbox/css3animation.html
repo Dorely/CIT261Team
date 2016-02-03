@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function pTag() {
+                var tagP = document.getElementsByTagName('p');
+                tagP[0].style.animationPlayState = "running";
+                tagP[1].style.animationPlayState = "running";
+            }
+            
+            function pTarg() {
+                var taGP = document.getElementsByTagName("p");
+                taGP[0].style.animationPlayState = "paused";
+                taGP[1].style.animationPlayState = "paused";
+            }
+        </script>
+        <style>
+            p{
+                animation-duration: 3s;
+                animation-name: slidein;
+                animation-iteration-count: 2;
+                animation-play-state: paused;
+                animation-direction: alternate;
+            }
+
+            @keyframes slidein {
+                from {
+                    //following line is nasty path
+                    // there is a syntax error there is spaces after the 100 and the %
+                    // this nasty path works for all things that match this syntax
+                    //margin-left: 100 % ;
+                        margin-left: 102%;
+                    width: 300%;
+                }
+
+                to {
+                    margin-left:0%;
+                    width: 100%;
+                }
+                35%{
+                    font-size:200%;
+                    margin-left:25%;
+                    width: 125%;
+                }    
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</h1>
+        </header>
+        <p>This is supposed to be where the text slides in</p>
+        <p>here is a second p tag</p>
+        <button onclick="pTag()">play</button>
+        <button onclick="pTarg()">pause</button>
+</html>
