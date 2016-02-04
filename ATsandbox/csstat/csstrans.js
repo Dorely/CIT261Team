@@ -23,5 +23,15 @@ var intervalID = window.setInterval(updateTransition, 3000)
 function maketransition(){
     var el2 = document.getElementById("img3")
     
-    el2.// trying to trigger the transition in the css
+    //el2.setAttribute('id', "img-3")
+    
+    if (el2) {
+    console.log(el2.getAttribute('id'))
+    el2.setAttribute("id", "img-3")
+  } else {
+    console.log("else")
+    el2 = document.getElementById("img-3")
+    el2.setAttribute("id", "img3")
+    
+  }
 }
