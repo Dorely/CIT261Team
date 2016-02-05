@@ -1,0 +1,57 @@
+/*Transition*/
+
+#img1
+{
+    width: 300px;
+    height: 300px;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+#img1:hover 
+{
+    width: 200px;
+    height: 200px;
+    transform: rotate(360deg);
+}
+
+#img2
+{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 400px;
+    top: 70px;
+    transition-property: width height left top;
+    transition-duration: 3s;
+    transition-timing-function: ease;
+}
+
+#img-2
+{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 510px;
+    top: 170px;
+    transition-property: width height left top;
+    transition-duration: 3s;
+    transition-timing-function: ease;
+}
+
+#img3
+{
+    top: 0px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transition: width .2s ease, height 1s ease, top 1s ease;
+}
+
+#img-3
+{
+    position: relative;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    transition: width 1s ease, height .2s ease, top .2s ease;
+}
