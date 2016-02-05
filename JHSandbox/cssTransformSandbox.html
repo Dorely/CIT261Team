@@ -18,9 +18,9 @@
             /*transform: rotate(30deg);*/ /* positive values */
             /*transform: rotate(-30deg);*//* negative values */
             animation-duration: 3s;
-            animation-name: animateRotate;
-            animation-iteration-count: infinite;
-            animation-play-state: paused;
+            /*animation-name: animateRotate;*/
+            animation-iteration-count: 1;
+            animation-play-state: running;
             animation-timing-function: linear;
         }
 
@@ -40,7 +40,7 @@
         /** Happy path transform: scale **/
         #bodyDiv3{
             background:green;
-            /*transform: scale(.5,.5);*/ /* Scales Relative (x,y) */
+            /*transform: scale(.5,1);*/ /* Scales Relative (x,y) */
             animation-duration: 5s;
             animation-name: animateScale;
             animation-iteration-count: infinite;
@@ -95,10 +95,17 @@
                 transform: scale(1,1);
             }
             25%{
-                transform: scale(2,2);
+                transform: scale(2,4);
+                opacity: 1;
+            }
+            25.0001%{
+                opacity: 0;
             }
             75%{
-                transform: scale(.5,.5);
+                transform: scale(.5,1);
+                display: block;
+                background: pink;
+                opacity: 1;
             }
             to {
                 transform: scale(1,1);
@@ -123,6 +130,39 @@
     </style>
     <script>
 
+
+
+        //nasty path this doesnt quite work
+        function setListeners(){
+            var div = document.getElementById("bodyDiv1");
+
+            var styleSheets = document.styleSheets
+            console.log(styleSheets);
+
+            console.log(div)
+
+            div.addEventListener("animationend", function(event){
+                div.style.animationName = ""
+                div.style.animationPlayState = "paused"
+                console.log(div.style)
+            })
+        }
+
+        function animateStateChange2(id){
+            var div = document.getElementById(id)
+
+            //console.log(div.style.animationPlayState);
+
+            if(div.style.animationPlayState == "running"){
+                div.style.animationPlayState = "paused"
+                //div.style.animationName = ""
+            }else{
+                div.style.animationName = "animateRotate"
+                div.style.animationPlayState = "running"
+            }
+        }
+
+
         //happy path triggering the transform animations
         function animateStateChange(id){
             var div = document.getElementById(id)
@@ -135,6 +175,21 @@
                 div.style.animationPlayState = "running"
             }
         }
+
+        //nasty path test
+//        function animateStateChange2(id){
+//            var div = document.getElementById(id)
+//
+//            //console.log(div.style.animationPlayState);
+//
+//            if(div.style.animationPlayState == "running"){
+//                div.style.animationPlayState = "paused"
+//            }else{
+//                div.style.animationPlayState = "running"
+//            }
+//        }
+
+
 
         function triggerTransition(id){
             var div = document.getElementById(id)
@@ -152,8 +207,8 @@
         }
     </script>
 </head>
-<body>
-<div class="bodyDiv" id="bodyDiv1" onclick="animateStateChange(this.id)">
+<body onload="setListeners()">
+<div class="bodyDiv" id="bodyDiv1" onclick="animateStateChange2(this.id)">
 
 </div>
 <div class="bodyDiv" id="bodyDiv2" onclick="animateStateChange(this.id)">
