@@ -7,6 +7,9 @@ function change(){
     element.style.backgroundColor = "#ffaa44"
 }
 
+// set a style value to be null or bob or 7, expexting a string and give a numeric value
+// setting the width negative or height
+
 // but ID's only have one instance. what if you want alot to change at once that have the same css properties
 var inElement = document.getElementsByClassName("inside")
 console.log(inElement)

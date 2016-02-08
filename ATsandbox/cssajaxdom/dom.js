@@ -8,6 +8,10 @@ function createElem(){
     var element3 = document.createElement("thisworks")
     console.log(element3)
     
+    // create pass null
+    
+    // append element to body
+    
     //nastypath
     //var element1 = document.createElement(20)
     //console.log(element1)
@@ -22,10 +26,19 @@ function createElem(){
     element3.setAttribute("class", "newClass")
     console.log(element3)
     
+    // this is perffered
+    element.id = "div"
+    element["id"] = "div"
+    
     console.log("creating text node")
     // happy path putting a text node in an element
     var tNode = document.createTextNode("A new string formed")
     element.appendChild(tNode)
+    
+    //nasty appending
+    // append null
+    //tNode.appendChild(element)
+    //tNode.appendChild(2 elemnts)
     
 }
 
@@ -83,7 +96,8 @@ function inBefore(){
     }
     
     // null arguments
-    //afterElem.insertBefore(null, null)
+    afterElem.insertBefore(null, null)
+    // if before isnt a child
     // causes the elent to be inserted like a normal append
     
 }
@@ -107,6 +121,9 @@ function removeEl(){
     // nasty path
     var element1 = document.createElement("img")
     //element.removeChild(element1) can't find it
+    
+    // remvoing a child from a different a element
+    // remove null
 }
 
 function replace(){
@@ -119,12 +136,14 @@ function replace(){
     newElement.setAttribute("src","http://weneedfun.com/wp-content/uploads/2015/10/Beautiful-Food-Photos-1.jpeg")
     console.log(newElement)
     
+    newElement.src = "http://weneedfun.com/wp-content/uploads/2015/10/Beautiful-Food-Photos-1.jpeg"
+    
     parentElement.replaceChild(newElement, child)
 
     // nasty path
-    // parentElement.replaceChild(null, null)
-    //parentElement.replaceChild(newElement,null) // or the other way
-    //parentElement.replaceChild(newElement,newElement)
+    parentElement.replaceChild(null, null)
+    parentElement.replaceChild(newElement,null) // or the other way
+    parentElement.replaceChild(newElement,newElement)
 }
 
 
