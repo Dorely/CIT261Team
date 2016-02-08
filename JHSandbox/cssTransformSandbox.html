@@ -53,7 +53,7 @@
             background:black;
             /*transform: skew(15deg,25deg);*/ /* skews (x,y) */
             animation-duration: 5s;
-            animation-name: animateSkew;
+            animation-name: badKeyFrames;
             animation-iteration-count: infinite;
             animation-play-state: paused;
             animation-timing-function: default;
@@ -64,17 +64,34 @@
             background:grey;
             margin-left: 0;
             transition: margin-left .2s ease-in-out 0s;
+            /*transition: <property> <duration> <timing-function> <delay>;*/
         }
+
+        #bodyDiv6{
+            background:purple;
+            transition-property: all;
+            transition-duration: 3s;
+            transition-timing-function: ease;
+            transition-delay: .01s;
+        }
+
+        /*#bodyDiv6:hover{
+            !*transform: scale(2,2);*!
+            !*transform: translate(50px,0);*!
+            transform: rotate(180deg);
+        }*/
 
 
         /** Happy path animating transforms **/
         @keyframes animateRotate {
             from {
                 transform: rotate(0deg);
+                opacity: 0;
             }
 
             to {
                 transform: rotate(360deg);
+                opacity: 1;
             }
         }
 
@@ -112,20 +129,48 @@
             }
         }
 
+        /*nasty path add animation with keyframes wrong order*/
+        /*No change to animation, they still go in order*/
         @keyframes animateSkew {
             from {
                 transform: skew(0deg,0deg);
             }
-            25%{
-                transform: skew(180deg,90deg);
+            to {
+                transform: skew(0deg,0deg);
             }
             75%{
                 transform: skew(90deg,45deg);
             }
-            to {
-                transform: skew(0deg,0deg);
+            25%{
+                transform: skew(180deg,90deg);
             }
         }
+
+        /*nasty path add animation with no keyframes*/
+        @keyframes noKeys{
+            /*This simply does nothing*/
+        }
+
+        /**/
+        @keyframes badKeyFrames{
+            from{
+                background: black;
+            }
+            50%{
+                background: white;
+            }
+            /*100%{
+                background: blue;
+            }*/
+            200%{
+                background: red;
+            }
+        }
+
+        /*nasty path add animation with final keyframe above 100%*/
+        /*nasty path add what if animation/transition times are negative values*/
+
+
 
     </style>
     <script>
@@ -176,21 +221,6 @@
             }
         }
 
-        //nasty path test
-//        function animateStateChange2(id){
-//            var div = document.getElementById(id)
-//
-//            //console.log(div.style.animationPlayState);
-//
-//            if(div.style.animationPlayState == "running"){
-//                div.style.animationPlayState = "paused"
-//            }else{
-//                div.style.animationPlayState = "running"
-//            }
-//        }
-
-
-
         function triggerTransition(id){
             var div = document.getElementById(id)
 
@@ -203,6 +233,16 @@
                 div.style.marginLeft = '100px';
                 console.log(div.style.marginLeft);
             }
+
+        }
+
+        function mouseOver(div){
+            div.style.transform = "rotate(360deg) scale(1.5,1.5) translate(550px,0px)"
+
+        }
+
+        function mouseOut(div){
+            div.style.transform = "rotate(0deg) scale(1,1) translate(0px,0px)"
 
         }
     </script>
@@ -222,6 +262,10 @@
 </div>
 
 <div class="bodyDiv" id="bodyDiv5" onclick="triggerTransition(this.id)">
+
+</div>
+
+<div class="bodyDiv" id="bodyDiv6" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
 
 </div>
 
