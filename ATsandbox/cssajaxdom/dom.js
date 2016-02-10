@@ -4,13 +4,14 @@ function createElem(){
     // happypath creating element
     var element = document.createElement("div")
     console.log(element)
-    
+    // you can name it whatever you want
     var element3 = document.createElement("thisworks")
     console.log(element3)
     
-    // create pass null
-    
-    // append element to body
+    //nasty path
+    // not bad but will create a tag named null
+    var nullElem = document.createElement(null)
+    console.log(nullElem)
     
     //nastypath
     //var element1 = document.createElement(20)
@@ -35,16 +36,34 @@ function createElem(){
     var tNode = document.createTextNode("A new string formed")
     element.appendChild(tNode)
     
+    // append element to body
+    var body = document.getElementsByTagName("body")
+    body[0].appendChild(element)
+    
     //nasty appending
     // append null
-    //tNode.appendChild(element)
+    try{
+        body[0].appendChild(null)
+    }
+    catch(e){
+        console.log(e)   
+    }
+    // appending a text node to a element, works the other way around
+    try{
+        tNode.appendChild(element)
+    }
+    catch(e){
+        console.log(e)
+    }
+   
     //tNode.appendChild(2 elemnts)
+    
     
 }
 
 //nastypath
 //function createElement()
-// calling you function this doesn't work cuz its save by js
+// calling you function this doesn't work cuz its a saved word by js
 
 function append(){
     console.log("Appending")
@@ -66,7 +85,12 @@ function append(){
     
     //nasty path
     //appending itself to itself
-    //connect.appenChild(connect)
+    try{
+    connect.appenChild(connect)
+    }
+    catch(e){
+        console.log(e)
+    }   
     
     //trying to append non node items
     var string = "asdfasdfa"
@@ -108,7 +132,6 @@ function removeEl(){
     //happy path removing elements
     var element = document.getElementById("rmParent")
     var rm = element.lastElementChild
-    console.log(rm)
     
     // this is both happy and nasty. when there is nothing to delete you 
     // can catch an error
@@ -119,11 +142,23 @@ function removeEl(){
     }
     
     // nasty path
-    var element1 = document.createElement("img")
-    //element.removeChild(element1) can't find it
-    
     // remvoing a child from a different a element
+    try{
+        rm = document.getElementsByTagName("body")[0].lastElementChild
+        element.removeChild(rm)
+    }
+    catch(e){
+        console.log(e)   
+    }
+    
     // remove null
+    try{
+    rm = null
+        element.removeChild(rm)
+    }
+    catch(e){
+        console/list(e)   
+    }
 }
 
 function replace(){
@@ -141,31 +176,12 @@ function replace(){
     parentElement.replaceChild(newElement, child)
 
     // nasty path
+    try{
     parentElement.replaceChild(null, null)
     parentElement.replaceChild(newElement,null) // or the other way
     parentElement.replaceChild(newElement,newElement)
+    }
+    catch(e){
+     console.log(e)   
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
