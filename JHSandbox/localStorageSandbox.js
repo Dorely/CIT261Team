@@ -67,5 +67,9 @@ function localStorageSandbox(){
     sessionStorage.setItem(1,2)//works
     console.log(sessionStorage.getItem(1))//returns the value as a string
 
+    //add get with invalid key
+    console.log(localStorage.getItem("somethingNotThere"))// returns null
+
+
 
 }

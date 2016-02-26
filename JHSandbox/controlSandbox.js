@@ -296,6 +296,7 @@ function parametersSandbox(){
         console.log(newCar.make+" "+newCar.model)
         console.log(car.make+" "+car.model)
     }
+
     passByReference(car)
     console.log(car.make+" "+car.model)
 }

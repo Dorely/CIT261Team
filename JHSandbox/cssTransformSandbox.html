@@ -75,11 +75,14 @@
             transition-delay: .01s;
         }
 
-        /*#bodyDiv6:hover{
-            !*transform: scale(2,2);*!
-            !*transform: translate(50px,0);*!
-            transform: rotate(180deg);
-        }*/
+        /*nasty path add what if animation/transition times are negative values*/
+        /*this results in instant transition*/
+        #bodyDiv7{
+            background:darkblue;
+            margin-left: 0;
+            transition: margin-left -1s ease-in-out -1s;
+            /*transition: <property> <duration> <timing-function> <delay>;*/
+        }
 
 
         /** Happy path animating transforms **/
@@ -151,7 +154,8 @@
             /*This simply does nothing*/
         }
 
-        /**/
+        /*nasty path add animation with final keyframe above 100%*/
+        /*any keyframe above 100% just gets ignored*/
         @keyframes badKeyFrames{
             from{
                 background: black;
@@ -166,11 +170,6 @@
                 background: red;
             }
         }
-
-        /*nasty path add animation with final keyframe above 100%*/
-        /*nasty path add what if animation/transition times are negative values*/
-
-
 
     </style>
     <script>
@@ -266,6 +265,10 @@
 </div>
 
 <div class="bodyDiv" id="bodyDiv6" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+
+</div>
+
+<div class="bodyDiv" id="bodyDiv7" onclick="triggerTransition(this.id)">
 
 </div>
 
