@@ -6,10 +6,13 @@
         <script src="ajax.js"></script>
     </head>
     
-    <body id="area">
+    <body id="area" onload="run()">
        <button onclick="change()">Change background</button>
         <div class="inside">
         </div>
+        
+        <div id="box" style="width: 300px; height: 300px; backgroundColor: blue;"></div>
+        
         <div><button onclick="createElem()">Create Element</button></div>
         
         <div id="parent">

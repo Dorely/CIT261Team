@@ -18,6 +18,20 @@ var jsonString = JSON.stringify(foo, replacer)
 
 console.log(jsonString)
 
+// happy path for another stringy
+var jsonString = { "array":[
+        {"key1":"value1", "key2":"value2"},
+        {"key1":"value3", "key2":"value4"},
+        {"key1":"value5", "key2":"value6"}]}
+
+console.log(JSON.stringify(jsonString))
+
+// nasty path bad inputs
+console.log(JSON.stringify(null))
+console.log(JSON.stringify("String value")) // this one just prints out the arguement
+console.log(JSON.stringify(7))
+
+
 //nasty
 // not haveing a =
 //var foo {
@@ -45,15 +59,7 @@ var jsonString = '{ "array":[' +
         console.log(e)
     }
 
-// happy path for another stringy
-var jsonString = { "array":[
-        {"key1":"value1", "key2":"value2"},
-        {"key1":"value3", "key2":"value4"},
-        {"key1":"value5", "key2":"value6"}]}
+    console.log(JSON.parse(7))
 
-console.log(JSON.stringify(jsonString))
-
-// nasty path bad inputs
-console.log(JSON.stringify(null))
-console.log(JSON.stringify("String value")) // this one just prints out the arguement
-
+    // parse a string that looks like json
+    console.log(JSON.parse('{"array":[' + '{"key":"tree", random}' + 'a sentance}')
