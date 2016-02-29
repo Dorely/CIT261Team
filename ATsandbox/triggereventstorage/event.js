@@ -15,9 +15,11 @@ function load(){
     
     //multi touch
     var multiTouch = document.getElementById("multi")
-    multiTouch.addEventListener("touchlist", multiTouchHandler, false)
+    multiTouch.addEventListener("touchstart", multiTouchHandler, false) 
     
-    // for nasty path
+    //use starttouch to find multipule touches
+    
+    // nasty path
     var nullTouch = document.getElementById("nullTouch")
     nullTouch.addEventListener("touchstart",null, false) // this does nothing cuz no function is being called
     //nullTouch.addEventListener("touchstart", nullTouchHandler, null) // this one runs
@@ -50,7 +52,7 @@ function endHandler(event) {
     console.log("ran end handler")
 }
 
-//NOTE: you don't need event inthe paramaters to get it to work
+//NOTE: you don't need event in the paramaters to get it to work
 function nullTouchHandler(){
        console.log("nullTouch: ", event)
 }
@@ -62,5 +64,10 @@ function moveHandler(event){
 }
 
 function multiTouchHandler(event){
-    console.log("Multitouch: ", event)   
+    console.log("Multitouch: ", event)
+    var coords1 = document.getElementById("addText4")
+    var coords2 = document.getElementById("addText5")
+    coords1.innerHTML = "First Touch: x: " + event.touches[0].pageX + ", y: " + event.touches[0].pageY
+    coords2.innerHTML = "Second Touch: x: " + event.touches[1].pageX + ", y: " + event.touches[1].pageY
+    
 }
