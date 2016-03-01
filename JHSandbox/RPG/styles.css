@@ -1,0 +1,50 @@
+
+#topImage{
+    position: absolute;
+    top:0;
+    left:0;
+    transform: translateY(0px);
+
+}
+
+#bottomImage{
+    position: absolute;
+    top:0;
+    left:0;
+    transform: translateY(0px);
+
+}
+
+.transitionProperties1{
+    transition-property: transform;
+    transition-delay: 0s;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+}
+
+.transitionProperties2{
+    transition-property: transform;
+    transition-delay: 0s;
+    transition-duration: 3s;
+    transition-timing-function: ease-in;
+}
+
+#frameImage{
+    position: absolute;
+    top: -35px;
+    left: -6%;
+
+}
+
+#mainDiv{
+    margin-left: 50%;
+    position: relative;
+    transform: translateX(-25%);
+    margin-top: 35px;
+    display: block;
+}
+
+body{
+    background: grey;
+    overflow: hidden;
+}
