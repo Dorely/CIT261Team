@@ -4,10 +4,7 @@ function callOnLoad(){
 
     addTouchListeners();
 
-
-
 }
-
 
 function addTouchListeners(){
 
@@ -75,7 +72,6 @@ function slideIn(){
 
     bottomImage.className = "transitionProperties1"
     bottomImage.style.transform = "translate(0,0%)"
-
 
     topImage.removeEventListener("transitionend",slideIn)
     window.addEventListener("click",slideOut)
