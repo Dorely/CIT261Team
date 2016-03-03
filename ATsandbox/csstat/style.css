@@ -26,18 +26,6 @@
     transition-timing-function: ease;
 }
 
-#img-2
-{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 510px;
-    top: 170px;
-    transition-property: width height left top;
-    transition-duration: 3s;
-    transition-timing-function: ease;
-}
-
 #img3
 {
     top: 0px;
@@ -47,28 +35,23 @@
     transition: width .2s ease, height 1s ease, top 1s ease;
 }
 
-#img-3
-{
-    position: relative;
-    top: 100px;
-    width: 100px;
-    height: 100px;
-    transition: width 1s ease, height .2s ease, top .2s ease;
-}
-
 #firstBox
 {
     background: blue;
     width: 200px;
     height: 200px;
+/*
+    nasty path
+    you will need all three arugements in the animation tag in order for it to work
+*/
     animation: colorChange 5s infinite;
 }
 
 @keyframes colorChange {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+    0%   {background-color: red}
+    25%  {background-color: yellow}
+    50%  {background-color: blue}
+    100% {background-color: green}
 }
 
 #secondBox
@@ -76,10 +59,33 @@
     background: red;
     width: 200px;
     height: 200px;
-    animation: moveLeftTwist;
     animation-play-state: paused;
+    animation-name: moveRightTwist;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    
 }
 
-@keyframes moveLeftTwist {
-    50%  {transform: translate(50px,50px)}
+@keyframes moveRightTwist {
+    0%   {}
+    45%  {transform: translate(400px, 0px) rotate(360deg)}
+    60%  {transform: rotate(360deg)}
+    100% {transform: translate(0px,0px)}
+}
+
+#thirdBox
+{
+    background: orange;
+    width: 200px;
+    height: 200px;
+    animation: skewMuch 5s infinite;
+    animation-play-state: paused;  /*kinda a nasty path but you need this after animtion for it to be paused*/
+}
+
+@keyframes skewMuch {
+    0%   {}
+    25%  {transform: skew(15deg, 5deg)}
+    50%  {transform: skew(.2deg, 50deg)}
+    75%  {transform: skew(100deg, 2deg)}
+    100% {transform: skew(0deg, 0deg)}
 }
