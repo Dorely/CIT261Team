@@ -3,24 +3,33 @@
 }
 
 
-#topImage{
+#topImage,#bottomImage{
     position: absolute;
     top:0;
     left:0;
     transform: translateY(0px);
     width:100%;
     height:100%;
-    z-index: 2;
+    z-index: 3;
 }
 
-#bottomImage{
+#charElements{
+    position: absolute;
+    left: 13%;
+    width: 74%;
+    z-index: 2;
+    top: 8%;
+    height: 84%;
+}
+
+#topImageUnder,#bottomImageUnder{
     position: absolute;
     top:0;
     left:0;
     transform: translateY(0px);
     width:100%;
     height:100%;
-    z-index: 2;
+    z-index: 1;
 
 }
 
@@ -43,7 +52,7 @@
     width: 100%;
     height: 100%;
     opacity: .9;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
 
 }
@@ -52,19 +61,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     background: blue;
-}
-
-#borderDiv{
-    /*position: relative;*/
-    /*border: 30px outset #4d5384;*/
-    /*border-right-color: #46496b;*/
-    /*border-left-color: #46496b;*/
-    /*!*margin:30px;*!*/
-    /*width:100%;*/
-    /*height:100%;*/
-
 }
 
 #mainDiv{
@@ -73,9 +71,11 @@
     height: 177vw; /* 16 * 100vw / 9;*/
     max-width: 56.25vh; /*9 / 16 * 100vh;*/
     max-height: 100vh;
+
     margin-left: 50%;
-    position: relative;
     transform: translateX(-50%);
+
+    position: relative;
     display: block;
     overflow: hidden;
 
@@ -83,6 +83,8 @@
 }
 
 body{
-    background: grey;
+    background: #32312D;
+    linear-gradient(to right, #32312D 0%,#262524 100%)
+
     overflow: hidden;
 }

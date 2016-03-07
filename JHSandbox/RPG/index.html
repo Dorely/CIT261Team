@@ -10,9 +10,22 @@
 <body onload="callOnLoad()">
     <div id="mainDiv">
         <div id="borderDiv">
+            <!--Border overlay image-->
+            <img id="frameImage" src="rpgDesignBorder.png">
+
+            <!--Top Images-->
             <img id="topImage" class="transitionProperties1" src="rpgDesignTop.png">
             <img id="bottomImage" class="transitionProperties1" src="rpgDesignBottom.png">
-            <img id="frameImage" src="rpgDesignBorder.png">
+
+            <!--Character Creation elements-->
+            <div id="charElements">
+                <input type="text" id="characterName" placeholder="Character Name">
+            </div>
+
+            <!--Character Creation background-->
+            <img id="topImageUnder" class="transitionProperties1" src="rpgDesignTopFlipped.png">
+            <img id="bottomImageUnder" class="transitionProperties1" src="rpgDesignBottomFlipped.png">
+
             <div id="gameMainDiv"></div>
         </div>
     </div>

@@ -15,13 +15,13 @@ function addTouchListeners(){
     window.addEventListener("click",slideOut)
     console.log("events added")
 
-    var divs = document.getElementsByTagName("div");
+    var mainGameDiv = document.getElementById("gameMainDiv")
 
-    for(var i=0 ;i<divs.length;i++){
-        divs[i].addEventListener("click",function(event){
-            console.log(event);
-        })
-    }
+    mainGameDiv.addEventListener("click",function(event){
+        console.log(event)
+    })
+
+
 
 }
 
@@ -52,7 +52,7 @@ function slideApart(){
     bottomImage.style.transform = "translate(2%,100%)"
 
     topImage.removeEventListener("transitionend",slideApart)
-    window.addEventListener("click",slideTogethor)
+    //window.addEventListener("click",slideTogethor)
 
     console.log("slideApart")
 
