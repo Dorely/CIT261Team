@@ -3,6 +3,8 @@ function load(){
     moveBox.style.animationPlayState = "paused"
     var skewBox = document.getElementById("thirdBox")
     skewBox.style.animationPlayState = "paused"
+    var scaleBox = document.getElementById("fourthBox")
+    scaleBox.style.animationPlayState = "paused"
 }
 
 function transformRight() {
@@ -38,4 +40,23 @@ function skewGo(){
         console.log("pausing")
         box.style.animationPlayState = "paused"
     }
+
+}
+
+function scaleGo(){
+    
+     console.log("skewing")
+    var box = document.getElementById("fourthBox")
+    
+    console.log(box.style.animationPlayState)
+    
+    if(box.style.animationPlayState == "paused"){
+        console.log("running")
+        box.style.animationPlayState = "running" 
+    }
+    else{
+        console.log("pausing")
+        box.style.animationPlayState = "paused"
+    }
+    
 }
