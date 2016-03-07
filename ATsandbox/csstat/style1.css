@@ -89,3 +89,30 @@
     75%  {transform: skew(100deg, 2deg)}
     100% {transform: skew(0deg, 0deg)}
 }
+
+#fourthBox
+{
+    background: pink;
+    width: 200px;
+    height: 200px;
+    transform: scale(.5);
+    animation-play-state: paused;
+    animation-name: nastyBox;
+    animation-duration: 4s;
+}
+
+@keyframes scaleGo{
+    70%  {transform: scale(2)}
+    80%  {transform: scale(.5)}
+    90%  {transform: scale(.7)}
+    100% {transform: scale(.5)}
+}
+
+/*not having them in the right order*/
+@keyframes nastyBox {
+    100%    {transform: rotate(53deg)}
+    0%      {transform: translate(20px, 100px)}
+    95%     {transform: scale(2)}
+    60%     {background: black}
+    
+}
