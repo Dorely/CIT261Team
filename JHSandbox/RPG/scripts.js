@@ -4,13 +4,9 @@ function callOnLoad(){
 
     addTouchListeners();
 
-    var divs = document.getElementsByTagName("div");
 
-    for(var i=0 ;i<divs.length;i++){
-        divs[i].addEventListener("click",function(event){
-            console.log(event);
-        })
-    }
+
+
 
 }
 
@@ -18,6 +14,14 @@ function addTouchListeners(){
 
     window.addEventListener("click",slideOut)
     console.log("events added")
+
+    var divs = document.getElementsByTagName("div");
+
+    for(var i=0 ;i<divs.length;i++){
+        divs[i].addEventListener("click",function(event){
+            console.log(event);
+        })
+    }
 
 }
 
