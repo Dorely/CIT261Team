@@ -98,8 +98,8 @@
     height: 200px;
     transform: scale(.5);
     animation-play-state: paused;
-    animation-name: nastyBox;
-    animation-duration: 4s;
+    animation-name: scaleGo;
+    animation-duration: 1s;
 }
 
 @keyframes scaleGo{
@@ -114,6 +114,13 @@
     100%    {transform: rotate(53deg)}
     0%      {transform: translate(20px, 100px)}
     95%     {transform: scale(2)}
-    60%     {background: black}
-    
+    60%     {background: black}    
+}
+
+/*negative keyframs and over 100 keyframes*/
+@keyframes nastyBox2{
+    -20%    {transform: rotate(53deg)}
+    0%      {transform: translate(20px, 100px)}
+    50%     {transform: scale(2)}
+    120%    {background: black}
 }

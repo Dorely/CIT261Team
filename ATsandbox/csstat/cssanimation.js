@@ -60,3 +60,5 @@ function scaleGo(){
     }
     
 }
+
+// eventlisterns for when animations are done.

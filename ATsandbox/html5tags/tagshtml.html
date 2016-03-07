@@ -8,9 +8,49 @@
     
         <!-- Video, Audio, Camera, etc  -->
         
-        <audio></audio>
-        <video></video>
-        <input type="file" accept="image/*;capture=camera">
+        <!-- happy path for audio -->
+        <audio src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" controls>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        <!-- nasty path for audio-->
+        <br>
+        <audio src="mov_bbb.mp4" controls></audio>
+        <br>
+        <audio src="random string" controls></audio>
+        <br>
+        <audio src="word.docx" controls></audio>
+        <br>
+        <br>
+        
+        <!--  happy path for video player   -->
+        <video width="400" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video>
+        <br>
+        <!--  nasty path for video player   -->
+        No controls
+        <br>
+        <video width="400">
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video>
+        <br>
+        Random String
+        <br>
+        <video width="400" controls>
+            <source src="some string">
+        </video>
+        <br>
+        Word Doc
+        <br>
+        <video width="400" controls>
+            <source src="word.docx">
+        </video>
+        <br> 
+        
+        
+        <!--video camera into a recorder-->
+        <canvas id="canvas" width="640" height="480"></canvas>
+<!--<input type="file" accept="image/*;capture=camera">-->
         
     </body>
 </html>
