@@ -12,10 +12,16 @@
   
 	<body>
     
-    <p>Use your fingers to draw on the screen!</p>
-    <canvas id="canvas"></canvas>
-  	<button id="saveButton" onclick="save()">Save</button>
-    <button id="loadButton" onclick="loadPicture()">Load</button>
-    
+        <p>Use your fingers to draw on the screen!</p>
+        <canvas id="canvas"></canvas>
+        <button id="saveButton" onclick="save()">Save</button>
+        <button id="loadButton" onclick="loadPicture()">Load</button>
+        
+        <div id="loadDisplay">
+            Load a picture from device or the internet.
+            <button id="loadDevice">From Device</button>
+            <button id="loadLink">Image Link</button>
+        </div>
+        
 	</body>
 </html>

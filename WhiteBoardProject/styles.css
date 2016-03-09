@@ -1,0 +1,9 @@
+#loadDisplay{
+    display: none;
+    width: 200px;
+    height: 100px;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+}

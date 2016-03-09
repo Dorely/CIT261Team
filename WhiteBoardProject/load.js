@@ -8,3 +8,16 @@
 * from a link given by the user or an image from the user's
 * phone. 
 */
+
+function loadPicture(){
+    console.log("menupopup") 
+    
+    document.getElementById("loadDisplay").style.display = "block"
+    
+    var touch = document.getElementById("loadDevicePic")
+    touch.addEventListener("touchstart", touchLoDeviPic, false)
+}
+
+function touchLoDevPic(event){
+    
+}
