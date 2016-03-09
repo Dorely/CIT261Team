@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="camera.js"></script>
         
     </head>
 
@@ -14,7 +15,7 @@
         </audio>
         <!-- nasty path for audio-->
         <br>
-        <audio src="mov_bbb.mp4" controls></audio>
+        <audio src="mov_bbb.mp4" controls></audio> <!-- actually this works. takes the audio from the video and plays it -->
         <br>
         <audio src="random string" controls></audio>
         <br>
@@ -46,6 +47,9 @@
             <source src="word.docx">
         </video>
         <br> 
+        
+        
+        <video id="liveFeed" width="640" height="480" autoplay></video>
         
         
         <!--video camera into a recorder-->
