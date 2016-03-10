@@ -8,3 +8,21 @@
 * from a link given by the user or an image from the user's
 * phone. 
 */
+
+function webImageLoad(){
+    
+    var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function()
+        {
+            var image = ""
+            
+            if (xhttp.readyState == 4) {    
+                image = xhttp.responseText
+            }   
+            
+            document.getElementById("canvas").innerHTML = image
+        }
+        xhttp.open("GET", /*link goes here*/, true);
+        xhttp.send();
+}
