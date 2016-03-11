@@ -18,9 +18,16 @@
         <button id="loadButton" onclick="loadPicture()">Load</button>
         
         <div id="loadDisplay">
-            Load a picture from device or the internet.
-            <button id="loadDevice">From Device</button>
-            <button id="loadLink">Image Link</button>
+            <h3>Load a picture.</h3>
+            
+            Enter a link: <input id="link" type="text">
+            <button id="loadLink">Load Link Address</button>
+            <br>
+            File path: <input type="file" accept="image/*" onchange="loadCanvas(event)">
+            
+<!--            <button onclick="loadDevicePic" >Load From Device</button>-->
+            <br>
+            <button onclick="loadCancel()">Cancel</button>
         </div>
         
 	</body>
