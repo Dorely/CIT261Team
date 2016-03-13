@@ -12,23 +12,24 @@
   
 	<body>
     
-        <p>Use your fingers to draw on the screen!</p>
-        <canvas id="canvas"></canvas>
-        <button id="saveButton" onclick="save()">Save</button>
-        <button id="loadButton" onclick="loadPicture()">Load</button>
+        <p>
+            Use your fingers to draw on the screen!
+            <button id="saveButton" onclick="save()">Save</button>
+            <button id="loadButton" onclick="loadPicture()">Load</button>
+        </p>
         
         <div id="loadDisplay">
             <h3>Load a picture.</h3>
-            
             Enter a link: <input id="link" type="text">
             <button id="loadLink">Load Link Address</button>
             <br>
-            File path: <input type="file" accept="image/*" onchange="loadCanvas(event)">
-            
-<!--            <button onclick="loadDevicePic" >Load From Device</button>-->
+            <input type="file" accept="image/*" id="loadDevicePic">
             <br>
-            <button onclick="loadCancel()">Cancel</button>
+            <button onclick="loadCancel()" style="float: right; margin-right: 20px">Cancel</button>
         </div>
+        
+        <canvas id="canvas"></canvas>
+    
         
 	</body>
 </html>

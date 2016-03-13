@@ -9,105 +9,82 @@
 * phone. 
 */
 
-function webImageLoad(){
-    
-    var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function()
-        {
-            var image = ""
-            
-            if (xhttp.readyState == 4) {    
-                image = xhttp.responseText
-            }   
-            
-            document.getElementById("canvas").innerHTML = image
-        }
-        xhttp.open("GET", /*link goes here*/, true);
-        xhttp.send();
-
 function loadPicture(){
     console.log("menupopup") 
     
     document.getElementById("loadDisplay").style.display = "block"
     
-//    var tLoadDevice = document.getElementById("loadDevicePic")
-//    tLoadDevice.addEventListener("touchstart", touchLoDeviPic, false)
-//    
-//    var tLoadLink = document.getElementById("loadLink")
-//    tLoadLink.addEventListener("touchstart", touchLoLink, false)
-}
-
-function loadoDevicePic(event){
-   // document.getElementById("canvas").innerHTML = event
+    var tLoadDevice = document.getElementById("loadDevicePic")
+    tLoadDevice.addEventListener("change", touchLoDeviPic, false)
+    
+    var tLoadLink = document.getElementById("loadLink")
+    tLoadLink.addEventListener("touchstart", touchLoLink, false)
 }
 
 function touchLoLink(event){
-    //ajax
-}
+    
+    console.log("loading link image")
+    
+    function loadCanvas(dataURL){
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        
+        // load image from data url
+        var img = new Image();
+        
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+        };
 
-function loadCanvas(event){
-    console.log(event)
-//    var file = event.target.files
-//    if(file.length > 0){
-//        console.log("there is file")
-//        //picture url
-//        try{
-//            var fileReader = new FileReader();
-//                fileReader.onload = function (event) {
-//                    showPicture.src = event.target.result;
-//                };
-//                fileReader.readAsDataURL(file);
-//            
-//           // var picURL = window.URL.createObjectURL(file[0])
-//        }
-//        catch(e){
-//            try {
-//                // Fallback if createObjectURL is not supported
-//                var fileReader = new FileReader();
-//                fileReader.onload = function (event) {
-//                    showPicture.src = event.target.result;
-//                };
-//                fileReader.readAsDataURL(file);
-//            }
-//            catch (e) {
-//                //
-//                var error = document.querySelector("#error");
-//                if (error) {
-//                    error.innerHTML = "Neither createObjectURL or FileReader are supported";
-//                }
-//            }        
-//        }
-//        
-//        //get canvas
-//        var photoCanvas = document.getElementById("canvas")
-//        var ctx = photoCanvas.getContext("2d");
-//        //create image
-//        var photo = new Image();
-//        photo.onload = function(){
-//            //draw photo into canvas when ready
-//            ctx.drawImage(photo, 0, 0, 500, 400);
-//        };
-//        //load photo into canvas
-//        photo.src = picURL;
-//        //release object url
-//        window.URL.revokeObjectURL(picURL);
-    var canvas = document.getElementById('viewport'),
-        context = canvas.getContext('2d');
-
-    make_base();
-
-    function make_base()
-    {
-  base_image = new Image();
-  base_image.src = 'img/base.png';
-  base_image.onload = function(){
-    context.drawImage(base_image, 100, 100);
-  }
-}
-        console.log("imageloaded")
+        img.src = link;
     }
+    
+    var xhttp = new XMLHttpRequest();
+    var link = document.getElementById("link").value    
+    
+    // make ajax call to get image data url
+    console.log("Link: " + link)
+    xhttp.open('GET', link, true);
+    
+    xhttp.onreadystatechange = function() {
+        // Makes sure the document is ready to parse.
+        if(xhttp.readyState == 4) {
+        // Makes sure it's found the file.
+            if(xhttp.status == 200) {
+                loadCanvas(xhttp.responseText);
+            }
+        }
+    };
+    
+    xhttp.send(null); 
+    
+    loadCancel()
 }
+
+function touchLoDeviPic(e){
+    console.log(e)
+    
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    
+    var reader = new FileReader();
+    reader.onload = function(event){
+        var img = new Image();
+        
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img,0,0);
+        }
+        
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
+    
+    console.log("imageloaded")
+    loadCancel()
+}
+
 
 function loadCancel(){
     document.getElementById("loadDisplay").style.display = "none"
