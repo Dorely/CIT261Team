@@ -21,6 +21,9 @@
         <br>
         <audio src="word.docx" controls></audio>
         <br>
+<!--        no soruce-->
+        <audio src="" controls></audio>
+        <br>
         <br>
         
         <!--  happy path for video player   -->
@@ -33,6 +36,15 @@
         <br>
         <video width="400">
             <source src="mov_bbb.mp4" type="video/mp4">
+        </video>
+<!--        size to 0 and no src-->
+        <br>
+        <video width="" controls>
+            <source src="mov_bbb.mp4">
+        </video>
+        <br>
+        <video width="400" controls>
+            <source src="">
         </video>
         <br>
         Random String
@@ -51,7 +63,10 @@
         
         <video id="liveFeed" width="640" height="480" autoplay></video>
         
+
         <button id="snap">Take Picture</button>
+
+        <button id="snap">Snap That</button>
         
         <!--video camera into a recorder-->
         <canvas id="canvas" width="640" height="480"></canvas>

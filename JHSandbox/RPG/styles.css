@@ -13,13 +13,29 @@
     z-index: 3;
 }
 
-#charElements{
+
+#characterElements>img{
     position: absolute;
-    left: 13%;
-    width: 74%;
+    left:0;
+    transform: translateY(0px);
+    width:100%;
     z-index: 2;
-    top: 8%;
-    height: 84%;
+}
+
+#topClassButton{
+    top: 12%;
+}
+
+#middleClassButton{
+    top: 30%;
+}
+
+#bottomClassButton{
+    top: 48%;
+}
+
+#goButton{
+    top: 67%;
 }
 
 #topImageUnder,#bottomImageUnder{
@@ -71,6 +87,7 @@
     height: 177vw; /* 16 * 100vw / 9;*/
     max-width: 56.25vh; /*9 / 16 * 100vh;*/
     max-height: 100vh;
+
 
     margin-left: 50%;
     transform: translateX(-50%);

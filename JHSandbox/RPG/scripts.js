@@ -1,10 +1,28 @@
 
 
-function callOnLoad(){
+
+function callOnLoad() {
 
     addTouchListeners();
 
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
 
+    //TODO Come back to this later
+    window.addEventListener("resize",function(event){
+
+        //alert(window.innerHeight)
+
+    })
+    //set the initial length to equal the screen length on small screens
+    //750 is the width of iphone 6
+    if (window.innerWidth < 750) {
+        var mainDiv = document.getElementById("mainDiv")
+        var height = window.innerHeight
+        var width = (height/16)*9 //calculate width keeping with 9:16 ratio
+        mainDiv.style.minHeight = height + "px"
+        mainDiv.style.minWidth = width + "px"
+    }
 
 
 
@@ -21,6 +39,46 @@ function addTouchListeners(){
         console.log(event)
     })
 
+    var topButton = document.getElementById("topClassButton")
+    var middleButton = document.getElementById("middleClassButton")
+    var bottomButton = document.getElementById("bottomClassButton")
+
+    console.log(topButton)
+    console.log(middleButton)
+    console.log(bottomButton)
+
+    topButton.addEventListener("click",buttonSelect)
+    middleButton.addEventListener("click",buttonSelect)
+    bottomButton.addEventListener("click",buttonSelect)
+
+
+
+}
+
+function buttonSelect(button){
+
+    //console.log(button.target.id)
+
+    var id = button.target.id
+
+    var topButton = document.getElementById("topClassButton")
+    var middleButton = document.getElementById("middleClassButton")
+    var bottomButton = document.getElementById("bottomClassButton")
+
+
+    if(id == "topClassButton"){
+        topButton.style.transform = "translateX(-15%)"
+        middleButton.style.transform = "translateX(0%)"
+        bottomButton.style.transform = "translateX(0%)"
+    }else if(id == "middleClassButton"){
+        topButton.style.transform = "translateX(0%)"
+        middleButton.style.transform = "translateX(-15%)"
+        bottomButton.style.transform = "translateX(0%)"
+    }else{
+        topButton.style.transform = "translateX(0%)"
+        middleButton.style.transform = "translateX(0%)"
+        bottomButton.style.transform = "translateX(-15%)"
+    }
 
 
 }
