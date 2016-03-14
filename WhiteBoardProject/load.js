@@ -25,38 +25,18 @@ function touchLoLink(event){
     
     console.log("loading link image")
     
-    function loadCanvas(dataURL){
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
-        
-        // load image from data url
-        var img = new Image();
-        
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0);
-        };
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
 
-        img.src = link;
-    }
-    
-    var xhttp = new XMLHttpRequest();
     var link = document.getElementById("link").value    
-    
-    // make ajax call to get image data url
-    console.log("Link: " + link)
-    xhttp.open('GET', link, true);
-    
-    xhttp.onreadystatechange = function() {
-        // Makes sure the document is ready to parse.
-        if(xhttp.readyState == 4) {
-        // Makes sure it's found the file.
-            if(xhttp.status == 200) {
-                loadCanvas(xhttp.responseText);
-            }
-        }
-    };
-    
-    xhttp.send(null); 
+	
+    var img = new Image();
+    img.onload = function () {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+    }
+    img.src = link;
     
     loadCancel()
 }
