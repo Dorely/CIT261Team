@@ -22,16 +22,33 @@
     z-index: 2;
 }
 
-#topClassButton{
+#characterName{
+    position: absolute;
+    top: 8.3%;
+    left: 13%;
+    z-index: 2;
+    width: 71.5%;
+    height: 3%;
+    background: transparent none repeat scroll 0% 0%;
+    border: none;
+    color: white;
+    font-size: 3vh;
+}
+
+#topClassButton, #topClassButtonUnder{
     top: 12%;
 }
 
-#middleClassButton{
-    top: 30%;
+#middleClassButton, #middleClassButtonUnder{
+    top: 30.3%;
 }
 
-#bottomClassButton{
+#bottomClassButton, #bottomClassButtonUnder{
     top: 48%;
+}
+
+#topClassButtonUnder,#middleClassButtonUnder,#bottomClassButtonUnder{
+    z-index: 1 !important;
 }
 
 #goButton{
@@ -45,8 +62,7 @@
     transform: translateY(0px);
     width:100%;
     height:100%;
-    z-index: 1;
-
+    z-index: 0;
 }
 
 .transitionProperties1{
@@ -63,22 +79,38 @@
     transition-timing-function: ease-in;
 }
 
+.transitionProperties3{
+    transition-property: transform;
+    transition-delay: 0s;
+    transition-duration: .5s;
+    transition-timing-function: ease-out;
+}
+
 #frameImage{
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: .9;
+    opacity: 1;
     z-index: 4;
     pointer-events: none;
-
 }
 
 #gameMainDiv{
     position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background: blue;
+    width: 86%;
+    height: 94%;
+    z-index: -1;
+    background: purple;
+    border: solid black;
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%,-27%);
+    opacity: 0;
+
+    transition-property: transform, opacity;
+    transition-delay: 2s;
+    transition-duration: 2s;
+    transition-timing-function: linear;
 }
 
 #mainDiv{
@@ -88,20 +120,15 @@
     max-width: 56.25vh; /*9 / 16 * 100vh;*/
     max-height: 100vh;
 
-
     margin-left: 50%;
     transform: translateX(-50%);
 
     position: relative;
     display: block;
     overflow: hidden;
-
-
 }
 
 body{
     background: #32312D;
-    linear-gradient(to right, #32312D 0%,#262524 100%)
-
     overflow: hidden;
 }

@@ -5,24 +5,7 @@ function callOnLoad() {
 
     addTouchListeners();
 
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
 
-    //TODO Come back to this later
-    window.addEventListener("resize",function(event){
-
-        //alert(window.innerHeight)
-
-    })
-    //set the initial length to equal the screen length on small screens
-    //750 is the width of iphone 6
-    if (window.innerWidth < 750) {
-        var mainDiv = document.getElementById("mainDiv")
-        var height = window.innerHeight
-        var width = (height/16)*9 //calculate width keeping with 9:16 ratio
-        mainDiv.style.minHeight = height + "px"
-        mainDiv.style.minWidth = width + "px"
-    }
 
 
 
@@ -33,33 +16,68 @@ function addTouchListeners(){
     window.addEventListener("click",slideOut)
     console.log("events added")
 
-    var mainGameDiv = document.getElementById("gameMainDiv")
-
-    mainGameDiv.addEventListener("click",function(event){
-        console.log(event)
-    })
-
     var topButton = document.getElementById("topClassButton")
     var middleButton = document.getElementById("middleClassButton")
     var bottomButton = document.getElementById("bottomClassButton")
+    var goButton = document.getElementById("goButton")
 
-    console.log(topButton)
-    console.log(middleButton)
-    console.log(bottomButton)
 
     topButton.addEventListener("click",buttonSelect)
     middleButton.addEventListener("click",buttonSelect)
     bottomButton.addEventListener("click",buttonSelect)
+    goButton.addEventListener("click",enterGame)
+
+
+}
+
+function enterGame(){
+
+    var topImageUnder = document.getElementById("topImageUnder")
+    var bottomImageUnder = document.getElementById("bottomImageUnder")
+    var topButton = document.getElementById("topClassButton")
+    var middleButton = document.getElementById("middleClassButton")
+    var bottomButton = document.getElementById("bottomClassButton")
+    var topButtonUnder = document.getElementById("topClassButtonUnder")
+    var middleButtonUnder = document.getElementById("middleClassButtonUnder")
+    var bottomButtonUnder = document.getElementById("bottomClassButtonUnder")
+    var goButton = document.getElementById("goButton")
+    var nameBox = document.getElementById("characterName")
+    var gameDiv = document.getElementById("gameMainDiv")
+
+    var imageArray = [topButton,middleButton,bottomButton,topButtonUnder,middleButtonUnder,bottomButtonUnder,goButton,nameBox]
+
+    for(var i=0;i<imageArray.length;i++){
+        imageArray[i].className = "transitionProperties2"
+        imageArray[i].style.transform = "translateX(-100%)"
+    }
+    nameBox.style.display = "none";
+    topImageUnder.className = "transitionProperties2";
+    topImageUnder.style.transform = "translate(-60%,-10%)"
+
+    bottomImageUnder.className = "transitionProperties2";
+    bottomImageUnder.style.transform = "translate(60%,10%)"
+
+    topButton.removeEventListener("click",buttonSelect)
+    middleButton.removeEventListener("click",buttonSelect)
+    bottomButton.removeEventListener("click",buttonSelect)
+    goButton.removeEventListener("click",enterGame)
+
+    var frameImage = document.getElementById("frameImage")
+    frameImage.style.transform = "scale(1.15,1.1)"
+
+    gameDiv.style.transform = "translate(-50%,-27%)"
+    gameDiv.style.zIndex = "0"
+    gameDiv.style.opacity = "1"
 
 
 
 }
 
-function buttonSelect(button){
+function buttonSelect(event){
 
     //console.log(button.target.id)
 
-    var id = button.target.id
+    var id = event.target.id
 
     var topButton = document.getElementById("topClassButton")
     var middleButton = document.getElementById("middleClassButton")
@@ -67,17 +85,17 @@ function buttonSelect(button){
 
 
     if(id == "topClassButton"){
-        topButton.style.transform = "translateX(-15%)"
+        topButton.style.transform = "translateX(-10%)"
         middleButton.style.transform = "translateX(0%)"
         bottomButton.style.transform = "translateX(0%)"
     }else if(id == "middleClassButton"){
         topButton.style.transform = "translateX(0%)"
-        middleButton.style.transform = "translateX(-15%)"
+        middleButton.style.transform = "translateX(-10%)"
         bottomButton.style.transform = "translateX(0%)"
     }else{
         topButton.style.transform = "translateX(0%)"
         middleButton.style.transform = "translateX(0%)"
-        bottomButton.style.transform = "translateX(-15%)"
+        bottomButton.style.transform = "translateX(-10%)"
     }
 
 
@@ -149,7 +167,26 @@ function slideIn(){
     console.log("slideIn")
 }
 
+function setScreenSize(){
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
 
+    //TODO Come back to this later
+    window.addEventListener("resize",function(event){
+
+        //alert(window.innerHeight)
+
+    })
+    //set the initial length to equal the screen length on small screens
+    //750 is the width of iphone 6
+    if (window.innerWidth < 750) {
+        var mainDiv = document.getElementById("mainDiv")
+        var height = window.innerHeight
+        var width = (height/16)*9 //calculate width keeping with 9:16 ratio
+        mainDiv.style.minHeight = height + "px"
+        mainDiv.style.minWidth = width + "px"
+    }
+}
 
 
 
