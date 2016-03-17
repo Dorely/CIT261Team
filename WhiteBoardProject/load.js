@@ -14,14 +14,11 @@ function loadPicture(){
     
     var load = document.getElementById("loadDisplay")
     
-    load.addEventListener("animationend", function(){
-        console.log("FADDED IN")
-//        load.style.animationName = "loadFadeOut"
-    }, false)
+    console.log(load.style.animationName)
     
     load.style.display = "inline-block"
-    
-    console.log(load.style.animationName)
+
+    console.log(load.style.display)
     
     var tLoadDevice = document.getElementById("loadDevicePic")
     tLoadDevice.addEventListener("change", touchLoDeviPic, false)
@@ -80,12 +77,21 @@ function loadCancel(){
     
     console.log(load.style.animationName)
     
-    load.style.animationName = "loadFadeOut"
+    load.style.display = "none"
     
-    load.addEventListener("animationend", function(){
-        load.style.display = "none"
-        console.log("FADDED OUT")
-    }, false)
-    
+//    load.style.animationName = "loadFadeOut"
+//    
+//    load.style.animationPlayState = "running"
+//    
+//    load.addEventListener("animationend", function(){
+//        console.log(load.style.display)
+//        if(load.style.display == "inline-block"){
+//            load.style.display = "none"
+//        }
+//        else{
+//            load.style.display = "inline-block"
+//        }
+//         
+//    }, false)
     
 }
