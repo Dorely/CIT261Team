@@ -10,9 +10,18 @@
 */
 
 function loadPicture(){
-    console.log("menupopup") 
+    console.log("Loading Menu") 
     
-    document.getElementById("loadDisplay").style.display = "block"
+    var load = document.getElementById("loadDisplay")
+    
+    load.addEventListener("animationend", function(){
+        console.log("FADDED IN")
+//        load.style.animationName = "loadFadeOut"
+    }, false)
+    
+    load.style.display = "inline-block"
+    
+    console.log(load.style.animationName)
     
     var tLoadDevice = document.getElementById("loadDevicePic")
     tLoadDevice.addEventListener("change", touchLoDeviPic, false)
@@ -67,5 +76,16 @@ function touchLoDeviPic(e){
 
 
 function loadCancel(){
-    document.getElementById("loadDisplay").style.display = "none"
+    var load = document.getElementById("loadDisplay")
+    
+    console.log(load.style.animationName)
+    
+    load.style.animationName = "loadFadeOut"
+    
+    load.addEventListener("animationend", function(){
+        load.style.display = "none"
+        console.log("FADDED OUT")
+    }, false)
+    
+    
 }
