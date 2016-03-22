@@ -1,8 +1,10 @@
 function setScreenAndDrawing() {
     var w = window.innerWidth;
+   
     var h = window.innerHeight;
+     console.log("Window Height: " + h)
 //    canvas.style.width = (w - 20) +'px';
-//    canvas.style.height = (h - 70) +'px';
+    canvas.style.maxHeight = (h - 120) +'px';
 //    canvas.width = w;
 //    canvas.height = h;
     var hw = w/2
@@ -131,8 +133,12 @@ function setScreenAndDrawing() {
 
 function getTouchPos(canvasDom, touchEvent) {
   var rect = canvasDom.getBoundingClientRect();
+    console.log("RECT: " + JSON.stringify(rect))
+    console.log("left:" + rect.left + " right: " + rect.right)
   return {
     x: touchEvent.touches[0].clientX - rect.left,
     y: touchEvent.touches[0].clientY - rect.top
+      
   };
 }
+//offset by parent, where is canvas

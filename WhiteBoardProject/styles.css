@@ -1,3 +1,7 @@
+body{
+    min-width: 300px;
+}
+
 #loadDisplay{
     background: white;
     display: none;
@@ -6,6 +10,7 @@
     border-style: solid;
     border-width: 2px;
     position: absolute;
+    min-width: 120px;
     padding: 5px;
     animation-name: loadFadeIn;
     animation-duration: .5s;
@@ -13,7 +18,7 @@
 
 canvas{
     max-width: 100%;
-    max-height: 100%;
+    /*max-height: 100%;*/
     border-color: black;
     border-radius: 5px;
     border-style: solid;
@@ -31,10 +36,17 @@ canvas{
     100%  {opacity: 0; transform: scale(1.1)}
 }*/
 
-/*
-@media(max-width: 400px)
+#imgD{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+@media(max-width: 420px)
 {
     #loadDisplay{
+        width: 300px;
         background: white;
         display: none;
         border-color: black;
@@ -47,4 +59,4 @@ canvas{
         animation-duration: .5s;
     }
     
-}*/
+}

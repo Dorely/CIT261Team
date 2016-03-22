@@ -58,12 +58,18 @@ function touchLoDeviPic(e){
         var img = new Image();
         
         img.onload = function() {
+            //img.style.opacity = 1;
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img,0,0);
         }
-        
+
+//        img.style.opacity = 0
+//        img.style.transitionProperty = "opacity"
+//        img.style.transitionDuration = ".5s"
+//        img.style.transtionTimingFunction = "ease"
         img.src = event.target.result;
+        //console.log(img)
     }
     reader.readAsDataURL(e.target.files[0]);
     
