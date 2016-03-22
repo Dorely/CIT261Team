@@ -1,40 +1,55 @@
-function truncateText() {
-    var element = document.getElementsByClassName("mailCont")
+function main() {
+    var mContent = document.getElementsByClassName("mailCont")
     var letter = document.getElementsByClassName("mail")
-    console.log(element.length)
-    
+//    console.log(mContent.length)
+        
    mail ={
-        numMail: element.length,
+        numMail: mContent.length,
         emails: [],
         populateEmail: function(){
             for(var i = 0; i < this.numMail; ++i){
                 //console.log("Inside Loop i= " + i)
-                this.emails[i] = element[i].innerText
+                this.emails[i] = mContent[i].innerText
                 
             }
         }
     }
    
+   //saves the emails
     mail.populateEmail()
     
-    console.log(mail.emails)
+//    console.log(mail.emails)
 
-    for(var i = 0; i < element.length; ++i){
-        var truncated = element[i].innerText
-        //assign each email a touch
-         letter[i].addEventListener("touchstart", tStart, false)
-         letter[i].addEventListener("touchend", tEnd, false)
+    for(var i = 0; i < mContent.length; ++i){
+        var truncated = mContent[i].innerText
+        
+        letter[i].id = "letterID" + i.toString() //set each mail with an emailID#
+        letter[i].style.height = "65px"; // start height so transitions will work
+        // assign eam amil element a eventlistener
+        document.getElementById("letterID" + i.toString())
+            .addEventListener("touchstart", tStart, false)
+        document.getElementById("letterID" + i.toString())
+            .addEventListener("touchend", tEnd, false)
+        
          
         if (truncated.length > 53) {
             truncated = truncated.substr(0, 53) + '...';
-            console.log(truncated)
-            element[i].innerText = truncated
+//            console.log(truncated)
+            mContent[i].innerText = truncated
         }
     }
     
-    
+    // touch object
     touch = {
         beginY: 0,
+        //the - 10 is the padding-top and bottom. since clientHeight returns
+        //the padding as well.
+        mPxHeight: letter[0].offsetHeight - 11, 
+        
+        displayHeight: document.getElementById("mailView")
+                                .clientHeight.toString() + "px",
+        
+        displaying: false,
         
         getBeginY: function(){
             console.log("getBeginY(): " + this.beginY)
@@ -52,18 +67,47 @@ function truncateText() {
             //}
         },
         
-        expandView: function(event){
+        expandView: function(dom){
+            if(this.displaying != true){
+                console.log("expanding by: " + document.getElementById("mailView")
+                                .clientHeight / 2 + "px") 
             
-            console.log("expanding")
+                console.log("Dom clientHegit: " + dom.clientHeight)
+
+                dom.style.height = "155px"
+    //                (document.getElementById("mailView") //set as a specific number
+    //                                .clientHeight / 2).toString() + "px"
+
+                console.log("After Expanding: " + dom.style.height)   
+            }
         },
         
-        calulateY: function(current){
-            if(this.beginY < current){
-                return true 
+        miniView: function(dom){
+            if(this.displaying != true){
+                console.log("minimizing")
+                dom.style.height = this.mPxHeight.toString() + "px"
             }
-            else{
-               return false
+        },
+        
+        displayLetter: function(dom){       //make a back button, make all the other mail hide
+            console.log("displaying")
+            this.displaying = true
+            dom.style.height = this.displayHeight
+//            dom.style.transition = "height .2s ease"
+            
+        },
+        
+        calulateY: function(current, domTarget){
+            console.log("Current: " + current)
+            if(this.beginY < current){
+                this.expandView(domTarget) 
+            }
+            else if(this.beginY > current){
+               this.miniView(domTarget)
            }
+            else{
+                this.displayLetter(domTarget)
+            }
         }
         
     }
@@ -72,6 +116,7 @@ function truncateText() {
        
     function tStart(event){
         console.log("start")
+//        console.log(event)
         if(touch.getBeginY() == 0){
             touch.setBeginY(event.touches[0].pageY);
         }
@@ -79,67 +124,12 @@ function truncateText() {
     
     function tEnd(event){
         console.log("end")
-        console.log(event.changedTouches[0].pageY)
+//        console.log(event)
+//        console.log(event.changedTouches[0].pageY)
         
-        if(touch.calulateY(event.changedTouches[0].pageY)){
-            touch.expandView(event)
-        }
+        touch.calulateY(event.changedTouches[0].pageY, event.target)
         
         touch.setBeginY(0)
     }
     
 }
-
-
-
-
-
-
-
-
-/*function touchMoveD(event){
-   
-    console.log(event)
-    
-    touch = {
-        beginY: 0,
-        
-        getBeginY: function(){
-            console.log("getBeginY(): " + this.beginY)
-            return this.beginY;
-        },
-        
-        setBeginY: function(num){
-            if(arguments.length == 2){
-                console.log("reset beginY" + this.beginY)
-                this.beginY = arguments[1]
-            }
-            else{
-                this.beginY = num
-                console.log("after setting beginY " + this.beginY)
-            }
-        },
-        
-        expandView: function(){},
-        
-        calulateY: function(current){
-            if(this.beginY > current){
-                return false  
-            }
-            else{
-               return true
-           }
-        }
-        
-    }
-    
-    if(touch.getBeginY() == 0){
-        console.log("before setting beginY: " + touch.beginY)
-        touch.setBeginY(event.touches[0].pageY);
-    }
-    
-    if(touch.calulateY(event.touches[0].pageY)){
-//        console.log(event)
-        touch.setBeginY(event, null)
-    }
-}*/
