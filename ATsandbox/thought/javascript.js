@@ -21,10 +21,11 @@ function main() {
 //    console.log(mail.emails)
 
     for(var i = 0; i < mContent.length; ++i){
+        mContent[i].style.fontSize = "35px" // initalize font for transition
         var truncated = mContent[i].innerText
         
         letter[i].id = "letterID" + i.toString() //set each mail with an emailID#
-        letter[i].style.height = "65px"; // start height so transitions will work
+        letter[i].style.height = "112px"; // start height so transitions will work
         // assign eam amil element a eventlistener
         document.getElementById("letterID" + i.toString())
             .addEventListener("touchstart", tStart, false)
@@ -41,6 +42,8 @@ function main() {
     
     // touch object
     touch = {
+        beginX: 0,
+        
         beginY: 0,
         //the - 10 is the padding-top and bottom. since clientHeight returns
         //the padding as well.
@@ -56,15 +59,17 @@ function main() {
             return this.beginY;
         },
         
+        setBeginX: function(num){
+       
+            this.beginX = num
+            console.log("after setting beginX " + this.beginX)
+        },
+            
         setBeginY: function(num){
-            /*if(arguments.length == 2){
-                console.log("reset beginY" + this.beginY)
-                this.beginY = arguments[1]
-            }
-            else{*/
+       
             this.beginY = num
             console.log("after setting beginY " + this.beginY)
-            //}
+        
         },
         
         expandView: function(dom){
@@ -74,10 +79,16 @@ function main() {
             
                 console.log("Dom clientHegit: " + dom.clientHeight)
 
-                dom.style.height = "155px"
-    //                (document.getElementById("mailView") //set as a specific number
-    //                                .clientHeight / 2).toString() + "px"
-
+                dom.style.height = "250px"
+                var mID = dom.id.slice(-1)
+                var text = mail.emails[mID]
+                mContent[mID].style.fontSize = "45px"
+                
+                if (text.length > 150) {
+                    text = text.substr(0, 150) + '...'
+                    mContent[mID].innerText = text
+                }
+                
                 console.log("After Expanding: " + dom.style.height)   
             }
         },
@@ -86,6 +97,14 @@ function main() {
             if(this.displaying != true){
                 console.log("minimizing")
                 dom.style.height = this.mPxHeight.toString() + "px"
+                var mID = dom.id.slice(-1)
+                var text = mail.emails[mID]
+                mContent[mID].style.fontSize = "35px"
+                
+                if (text.length > 53) {
+                    text = text.substr(0, 53) + '...'
+                    mContent[mID].innerText = text
+                }
             }
         },
         
@@ -93,7 +112,28 @@ function main() {
             console.log("displaying")
             this.displaying = true
             dom.style.height = this.displayHeight
-//            dom.style.transition = "height .2s ease"
+            
+            var mID = dom.id.slice(-1)
+            var text = mail.emails[mID]
+            mContent[mID].style.fontSize = "45px"
+            mContent[mID].innerText = text
+                        
+        },
+        
+        closeDisplay: function(){
+            
+            if(this.displaying != true){
+                console.log("minimizing")
+                dom.style.height = this.mPxHeight.toString() + "px"
+                var mID = dom.id.slice(-1)
+                var text = mail.emails[mID]
+                mContent[mID].style.fontSize = "35px"
+                
+                if (text.length > 53) {
+                    text = text.substr(0, 53) + '...'
+                    mContent[mID].innerText = text
+                }
+            }
             
         },
         
@@ -108,18 +148,27 @@ function main() {
             else{
                 this.displayLetter(domTarget)
             }
-        }
+        },
         
+        calulateX: function(current, domTarget){
+            if(this.displaying == true){
+                console.log("Current: " + current)
+                if(this.beginX < current){
+                    this.displaying = false
+                    console.log("closing")
+                    this.miniView(domTarget) 
+                }
+            }
+        }
     }
     
     //event listeners
        
     function tStart(event){
         console.log("start")
-//        console.log(event)
-        if(touch.getBeginY() == 0){
-            touch.setBeginY(event.touches[0].pageY);
-        }
+        touch.setBeginY(event.touches[0].pageY)
+        touch.setBeginX(event.touches[0].pageX)
+    
     }
     
     function tEnd(event){
@@ -128,7 +177,7 @@ function main() {
 //        console.log(event.changedTouches[0].pageY)
         
         touch.calulateY(event.changedTouches[0].pageY, event.target)
-        
+        touch.calulateX(event.changedTouches[0].pageX, event.target)
         touch.setBeginY(0)
     }
     
