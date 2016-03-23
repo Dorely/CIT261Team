@@ -1,36 +1,8 @@
 
 
 
-function callOnLoad() {
 
-    addTouchListeners();
-
-
-
-
-
-}
-
-function addTouchListeners(){
-
-    window.addEventListener("click",slideOut)
-    console.log("events added")
-
-    var topButton = document.getElementById("topClassButton")
-    var middleButton = document.getElementById("middleClassButton")
-    var bottomButton = document.getElementById("bottomClassButton")
-    var goButton = document.getElementById("goButton")
-
-
-    topButton.addEventListener("click",buttonSelect)
-    middleButton.addEventListener("click",buttonSelect)
-    bottomButton.addEventListener("click",buttonSelect)
-    goButton.addEventListener("click",enterGame)
-
-
-}
-
-function enterGame(){
+function enterGameAnimation(){
 
     var topImageUnder = document.getElementById("topImageUnder")
     var bottomImageUnder = document.getElementById("bottomImageUnder")
@@ -43,12 +15,17 @@ function enterGame(){
     var goButton = document.getElementById("goButton")
     var nameBox = document.getElementById("characterName")
     var gameDiv = document.getElementById("gameMainDiv")
+    var dragoonText = document.getElementById("dragoonTextDiv")
+    var energistText = document.getElementById("energistTextDiv")
+    var soldierText = document.getElementById("soldierTextDiv")
 
-    var imageArray = [topButton,middleButton,bottomButton,topButtonUnder,middleButtonUnder,bottomButtonUnder,goButton,nameBox]
+
+
+    var imageArray = [topButton,middleButton,bottomButton,topButtonUnder,middleButtonUnder,bottomButtonUnder,goButton,nameBox,dragoonText,energistText,soldierText]
 
     for(var i=0;i<imageArray.length;i++){
-        imageArray[i].className = "transitionProperties2"
-        imageArray[i].style.transform = "translateX(-100%)"
+        imageArray[i].className = "transitionProperties4"
+        imageArray[i].style.transform = "translate(-100%,-10%)"
     }
     nameBox.style.display = "none";
     topImageUnder.className = "transitionProperties2";
@@ -57,10 +34,7 @@ function enterGame(){
     bottomImageUnder.className = "transitionProperties2";
     bottomImageUnder.style.transform = "translate(60%,10%)"
 
-    topButton.removeEventListener("click",buttonSelect)
-    middleButton.removeEventListener("click",buttonSelect)
-    bottomButton.removeEventListener("click",buttonSelect)
-    goButton.removeEventListener("click",enterGame)
+
 
     var frameImage = document.getElementById("frameImage")
     frameImage.style.transform = "scale(1.15,1.1)"
@@ -73,7 +47,7 @@ function enterGame(){
 
 }
 
-function buttonSelect(event){
+function classSelectAnimation(event){
 
     //console.log(button.target.id)
 
@@ -187,7 +161,3 @@ function setScreenSize(){
         mainDiv.style.minWidth = width + "px"
     }
 }
-
-
-
-
