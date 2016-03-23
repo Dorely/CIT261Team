@@ -8,12 +8,13 @@
   	<script src="drawing.js"></script>
   	<script src="save.js"></script>
   	<script src="load.js"></script>
+    <script src="menu.js"></script>
 </head>
   
-	<body>
+	<body onload="setScreenAndDrawing()">
     
         <p>
-            Use your fingers to draw on the screen!
+            <h2>Use your fingers to draw on the screen!</h2>
             <button id="saveButton" onclick="save()">Save</button>
             <button id="loadButton" onclick="loadPicture()">Load</button>
         </p>

@@ -1,18 +1,62 @@
+body{
+    min-width: 300px;
+}
+
 #loadDisplay{
+    background: white;
     display: none;
-    width: 400px;
-    height: 125px;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    position: absolute;
+    min-width: 120px;
+    padding: 5px;
+    animation-name: loadFadeIn;
+    animation-duration: .5s;
+}
+
+canvas{
+    max-width: 100%;
+    /*max-height: 100%;*/
     border-color: black;
     border-radius: 5px;
     border-style: solid;
     border-width: 2px;
 }
 
-canvas{
-    max-width: 600px;
-    max-height: 800px;
-    border-color: black;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 2px;
+@keyframes loadFadeIn{
+    0% {opacity: 0; transform: scale(1.1)}
+    100%  {opacity: 1; transform: scale(1)}
+}
+
+/*
+@keyframes loadFadeOut{
+    0% {opacity: 1; transform: scale(1)}
+    100%  {opacity: 0; transform: scale(1.1)}
+}*/
+
+#imgD{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+}
+
+@media(max-width: 420px)
+{
+    #loadDisplay{
+        width: 300px;
+        background: white;
+        display: none;
+        border-color: black;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 2px;
+        position: absolute;
+        padding: 5px;
+        animation-name: loadFadeIn;
+        animation-duration: .5s;
+    }
+    
 }

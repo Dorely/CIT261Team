@@ -1,0 +1,82 @@
+body{
+    background: black;
+}
+
+#main{
+    width: 100%;
+    margin: 0;
+}
+
+#header{
+    background: #123;
+    width: 100%;
+    height: 70px;
+    color: beige;
+}
+
+#header h2{
+    padding: 15px;
+}
+
+#view{
+    display: flex;
+    flex-flow: row;
+}
+
+#contacts{
+    background: #123;
+    padding-left: 15px;
+    color: beige;
+    width: 33%;
+    border: 1px;
+    border-style: solid;
+    border-color: cadetblue;
+}
+
+#mailView{
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    color: beige;
+    background: #124;
+    width: 100%;
+    height: 100%;
+}
+
+#footer{
+    background: #123;
+    width: 100%;
+    height: 70px;
+    color: beige;
+}
+
+.mail{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+/*    height: 75px;*/
+/*    margin: 5px;*/
+    padding: 5px;
+    border: 1px;
+/*    border-top: 0px;*/
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    border-color: cadetblue;
+    overflow: hidden;
+    transition: height 1s ease;
+}
+
+.mailID{
+    margin-top: 10px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    font-size: 30px;
+    color:#fff;
+/*    line-height:500px;*/
+    text-align:center;
+    background: blue;
+}
