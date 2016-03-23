@@ -5,33 +5,46 @@
     <title>Project Exodus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="styles.css" rel="stylesheet" type="text/css" media="screen">
-    <script src="scripts.js"></script>
+    <script src="scripts/objects.js"></script>
+    <script src="scripts/animationStuff.js"></script>
+    <script src="scripts/control.js"></script>
 </head>
 <body onload="callOnLoad()">
     <div id="mainDiv">
         <div id="borderDiv">
             <!--Border overlay image-->
-            <img id="frameImage" class="transitionProperties1" src="rpgDesignBorder.png">
+            <img id="frameImage" class="transitionProperties1" src="images/rpgDesignBorder.png">
 
             <!--Top Images-->
-            <img id="topImage" class="transitionProperties1" src="rpgDesignTop.png">
-            <img id="bottomImage" class="transitionProperties1" src="rpgDesignBottom.png">
+            <img id="topImage" class="transitionProperties1" src="images/rpgDesignTop.png">
+            <img id="bottomImage" class="transitionProperties1" src="images/rpgDesignBottom.png">
 
             <!--Character Creation elements-->
             <div id="characterElements">
                 <input type="text" id="characterName" placeholder="Character Name">
-                <img id="topClassButton" class="transitionProperties3" src="topClassButton.png">
-                <img id="middleClassButton" class="transitionProperties3" src="middleClassButton.png">
-                <img id="bottomClassButton" class="transitionProperties3" src="bottomClassButton.png">
-                <img id="topClassButtonUnder" class="transitionProperties1" src="topClassButtonUnder.png">
-                <img id="middleClassButtonUnder" class="transitionProperties1" src="middleClassButtonUnder.png">
-                <img id="bottomClassButtonUnder" class="transitionProperties1" src="bottomClassButtonUnder.png">
-                <img id="goButton" class="transitionProperties1" src="goButton.png">
+
+                <div  id="dragoonTextDiv">
+                    <span id="dragoonText">Dragoon</span>
+                </div>
+                <div id="energistTextDiv">
+                    <span id="energistText">Energist</span>
+                </div>
+                <div id="soldierTextDiv">
+                    <span id="soldierText">Soldier</span>
+                </div>
+
+                <img id="topClassButton" class="transitionProperties3" src="images/topClassButton.png">
+                <img id="middleClassButton" class="transitionProperties3" src="images/middleClassButton.png">
+                <img id="bottomClassButton" class="transitionProperties3" src="images/bottomClassButton.png">
+                <img id="topClassButtonUnder" class="transitionProperties1" src="images/topClassButtonUnder.png">
+                <img id="middleClassButtonUnder" class="transitionProperties1" src="images/middleClassButtonUnder.png">
+                <img id="bottomClassButtonUnder" class="transitionProperties1" src="images/bottomClassButtonUnder.png">
+                <img id="goButton" class="transitionProperties1" src="images/goButton.png">
             </div>
 
             <!--Character Creation background-->
-            <img id="topImageUnder" class="transitionProperties1" src="rpgDesignTopFlipped.png">
-            <img id="bottomImageUnder" class="transitionProperties1" src="rpgDesignBottomFlipped.png">
+            <img id="topImageUnder" class="transitionProperties1" src="images/rpgDesignTopFlipped.png">
+            <img id="bottomImageUnder" class="transitionProperties1" src="images/rpgDesignBottomFlipped.png">
 
             <div id="gameMainDiv"></div>
         </div>

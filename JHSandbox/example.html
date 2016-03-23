@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function fillTable(years){
+            //do math
+            //store math results in 2dimensional array
+            var numberOfRows = document.getElementById("textBox").value;
+
+            var table = document.getElementById("table")
+            table.innerHTML = "";
+            for(var i = 0;i<numberOfRows;i++ ){
+                var one = "one"
+                var two = "two"
+                var three = "three"
+                var four = "four"
+                var five = "five"
+                var six = "six"
+
+
+                var col1 = document.createElement("td");
+                    col1.innerHTML = one;
+
+                var col2 = document.createElement("td");
+                    col2.innerHTML = two;
+
+                var col3 = document.createElement("td");
+                    col3.innerHTML = three;
+
+                var col4 = document.createElement("td");
+                    col4.innerHTML = four;
+
+                var col5 = document.createElement("td");
+                    col5.innerHTML = five;
+
+                var col6 = document.createElement("td");
+                    col6.innerHTML = six;
+
+
+                var row = document.createElement("tr");
+
+                row.appendChild(col1)
+                row.appendChild(col2)
+                row.appendChild(col3)
+                row.appendChild(col4)
+                row.appendChild(col5)
+                row.appendChild(col6)
+
+                table.appendChild(row)
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<table id="table"></table>
+
+<input type="text" placeholder="Number of Rows" id="textBox">
+<button onclick="fillTable()">Click me</button>
+
+</body>
+</html>
