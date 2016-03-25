@@ -1,0 +1,51 @@
+body, html{
+    height: 100%;
+    background-color: black;
+}
+
+#body{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#leftSide{
+    width: 1%;
+    height: 100%;
+    background-color: yellow;
+}
+
+#middleBox{
+    text-align: center;
+    height: 100%;
+    width: 98%;
+    background: aqua;
+    animation-name: alert;
+    animation-play-state: paused;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+#middleBox h1{
+    font-size: 500%;
+}
+
+#middleBox p{
+    font-size: 300%;   
+}
+
+#rightSide{
+    background-color: yellow;
+    width: 1%;
+    height: 100%;
+}
+
+@keyframes alert{
+    0%   {background-color: aqua}
+    100% {background-color: yellowgreen}
+}
+
+@keyframes unalert {
+    0%   {background-color: yellowgreen}
+    100% {background-color: aqua}
+}
