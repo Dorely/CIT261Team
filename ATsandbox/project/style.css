@@ -1,0 +1,64 @@
+body, html{
+    
+    height: 100%;
+    background-color: darkolivegreen;
+}
+
+#body{
+    width: 100%;
+    height: 100%;
+}
+
+video{
+    width: 0;
+    height: 0;
+}
+
+header{
+    text-align: center;
+    padding: 20px;
+    font-size: 750%;
+    color: aliceblue;
+}
+
+main{
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 600%;
+    color: aliceblue;
+    width: 94%;
+    margin: 0;
+}
+
+#rectical{
+    font-size: 180%;
+    text-align: center;
+    
+}
+
+#quest1{
+    padding-top: 50px;
+    padding-bottom: 10%;
+}
+
+input, select{
+    height: 50%;
+    width: 70%;
+    font-size: 200%;
+}
+
+option{
+    font-size: 30%;
+}
+
+footer{
+    color: aliceblue;
+    padding-top: 200px;
+    font-size: 600%;
+}
+
+button{
+    font-size: 200%;
+    width: 100%;
+    height: 100%;
+}

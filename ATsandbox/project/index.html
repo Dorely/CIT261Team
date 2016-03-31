@@ -7,8 +7,37 @@
         <script src="javascript.js"></script>
         <link href="style.css" rel="stylesheet" type="text/css" media="screen">
     </head>
-    
-    <body>
+
+    <body onload="loadPage()">
+        <div id="body">
+            <header id="header">
+                Lets Get Started...
+            </header>
             
+            <main id="main">
+                <div id="quest1">
+                    What scope are you sighting
+                    <br>
+                    <select id="scope" onchange="getScope(this.value)">
+                      <option value="vx-6">VX-6</option>
+                      <option value="vx-3i">VX-3i</option>
+                      <option value="vx-r">VX-R</option>
+                      <option value="vx-2">VX-2</option>
+                    </select>
+                </div>
+                
+                <video id="video" autoplay></video>
+
+                <div id="quest2">
+                    What is the distance
+                    <br>
+                    <input type="number"> Yards
+                </div>
+            </main>
+
+            <footer id="footer">
+                <button id="nextButton" onclick="openCamera()">Lets Go!</button>
+            </footer>
+        </div>
     </body>
 </html>
