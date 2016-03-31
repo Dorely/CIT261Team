@@ -1,7 +1,5 @@
 var scopeAdj = null
 
-
-
 function loadPage(){
     var button = document.getElementById("nextButton")
     button.addEventListener("touchstart", cameraView, false)
@@ -31,21 +29,50 @@ function getscope(){
 
 function cameraView(){
     console.log("changing")
+    var imgHeight = 0
     
     var body = document.getElementById("body")
-    var header = document.getElementById("header")
+   // var content = document.getElementById("content")
     var video = document.getElementById("video")
+    var img = document.getElementById("img")
+    var header = document.getElementById("header")
     var main = document.getElementById("main")
+    var mainContent = main.innerHTML
     var footer = document.getElementById("footer")
+
     
     
+    body.addEventListener("touchstart", function(){
+                        
+        if(body.style.backgroundColor == "rgb(23, 33, 9)" 
+           && (event.target.nodeName != "IMG" && event.target.nodeName != "BUTTON")){
+            
+            console.log("Going Back")
+            body.style.backgroundColor = "darkolivegreen"
+            
+            header.innerHTML = "Lets Get Started..."
+            header.style.fontSize = "750%"
+            
+            img.innerHTML = ""
+            img.style.padding = "0px 0px"
+            img.style.width = "0"   
+            
+            video.innerHTML = ""
+            video.style.display = "none"
+            
+            main.innerHTML = mainContent
+            
+            footer.innerHTML = "<button id='nextButton'>Lets Go!</button>"
+            footer.style.paddingTop = "200px"
+            
+            loadPage()
+        }
+        
+    }, false)
     
-    var elmCrossHair = document.createElement("div")
-    elmCrossHair.id = "rectical"
-    elmCrossHair.innerText = "+"
-    console.log(main.clientHeight)
-    elmCrossHair.style.marginTop = (main.clientHeight / 2 - 100) + "px"
-    elmCrossHair.style.opacity = ".5"
+//    body.appendChild(shader)
+    
+    body.style.backgroundColor = "#172109"
     
     openCamera(video)
     
@@ -53,15 +80,22 @@ function cameraView(){
     header.style.fontSize = "600%"
     
     main.innerHTML = ""
-    main.appendChild(elmCrossHair)
-    video.style.width = "94%"
-    video.style.borderStyle = "solid"
-    video.style.borderRadius = "20px"
-    video.style.borderWidth = "10px"
-    video.style.height = "60%"
-    video.style.padding = "0px"
-    video.style.margin = "0px 20px"
+
+    var image = new Image()
+    image.src = "crosshair.png"
+    image.onload = function() {
+        console.log(this.height)
+        video.style.height = this.height *2 + "px";
+        return true;
+    }   
     
+    img.src = image.src
+    img.style.padding = "0px 10px"
+    img.style.position = "absolute"
+    img.style.width = "98%"
+    img.style.opacity = ".9"
+    
+    video.style.display = "block"
     
     footer.innerHTML = "Put the crosshair at the point of aim"
     footer.style.paddingTop = "50px"
@@ -98,12 +132,4 @@ function openCamera(element){
                     element.play();
                 }, errBack);
             }
-}
-
-//            var canvas = document.getElementById("canvas");
-//            context = canvas.getContext("2d");
-
-//            document.getElementById("snap").addEventListener("click", function() {
-//                context.drawImage(video, 0, 0, 640, 480);
-//            });
-       
+} 

@@ -8,11 +8,14 @@
         <link href="style.css" rel="stylesheet" type="text/css" media="screen">
     </head>
 
-    <body onload="loadPage()">
-        <div id="body">
+    <body id="body" onload="loadPage()">
+        <div id="content">
             <header id="header">
                 Lets Get Started...
             </header>
+            
+            <img id="img">
+            <video id="video" autoplay></video>
             
             <main id="main">
                 <div id="quest1">
@@ -26,8 +29,6 @@
                     </select>
                 </div>
                 
-                <video id="video" autoplay></video>
-
                 <div id="quest2">
                     What is the distance
                     <br>
@@ -36,8 +37,9 @@
             </main>
 
             <footer id="footer">
-                <button id="nextButton" onclick="openCamera()">Lets Go!</button>
+                <button id="nextButton">Lets Go!</button>
             </footer>
         </div>
+<!--        <div id="shade"> </div>-->
     </body>
 </html>
