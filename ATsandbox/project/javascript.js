@@ -3,6 +3,8 @@ var scopeAdj = null
 function loadPage(){
     var button = document.getElementById("nextButton")
     button.addEventListener("touchstart", cameraView, false)
+    
+    body.style.height = (window.innerHeight + 150) + "px"
 }
 
 function getscope(){
@@ -43,7 +45,9 @@ function cameraView(){
     body.addEventListener("animationend", bodyAnimEnd, false)
     
     body.addEventListener("touchstart", function(){
-                        
+        
+        console.log(event)
+        
         if(body.style.backgroundColor == "rgb(23, 33, 9)" 
            && (event.target.nodeName != "IMG" && event.target.nodeName != "BUTTON")){
             
@@ -51,7 +55,7 @@ function cameraView(){
             body.style.animationName = "fromShader"
             
             header.innerHTML = "Lets Get Started..."
-            header.style.fontSize = "750%"
+            header.style.fontSize = "600%"
             
             img.innerHTML = ""
             img.style.padding = "0px 0px"
@@ -73,14 +77,14 @@ function cameraView(){
     openCamera(video)
     
     header.innerHTML = "Put the target inside the box"
-    header.style.fontSize = "600%"
+//    header.style.fontSize = "600%"
     
     main.innerHTML = ""
 
     var image = new Image()
     image.src = "crosshair.png"
     image.onload = function() {
-        console.log(this.height)
+//        console.log(this.height)
         video.style.height = this.height *2 + "px";
         return true;
     }   
@@ -94,7 +98,7 @@ function cameraView(){
     video.style.display = "block"
     
     footer.innerHTML = "Put the crosshair at the point of aim"
-    footer.style.paddingTop = "50px"
+    footer.style.paddingTop = "0px"
     footer.style.textAlign = "center"
 }
 
@@ -131,8 +135,8 @@ function openCamera(element){
 } 
 
 function bodyAnimEnd(){
-    console.log("checking")
-    console.log(this.style.backgroundColor)
+//    console.log("checking")
+//    console.log(this.style.backgroundColor)
     if(this.style.backgroundColor != "rgb(23, 33, 9)"){
         this.style.backgroundColor = "rgb(23, 33, 9)"
     }

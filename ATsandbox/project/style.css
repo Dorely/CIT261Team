@@ -1,6 +1,6 @@
 body, html{
     
-    height: 100%;
+/*    height: 100%;*/
     background-color: darkolivegreen;
     margin: 0;
     animation-name: toShader;
@@ -9,15 +9,8 @@ body, html{
     animation-duration: .5s;
 }
 
-#shade{
-    position: absolute;
-    width: 100%;
+#content{
     height: 100%;
-    opacity: 0;
-    background-color: black;
-    top: 0px;
-    left: 0px;
-    pointer-events: none;
 }
 
 video{
@@ -35,23 +28,17 @@ video{
 header{
     text-align: center;
     padding: 20px;
-    font-size: 750%;
+    font-size: 600%;
     color: aliceblue;
 }
 
 main{
     padding-right: 30px;
     padding-left: 30px;
-    font-size: 600%;
+    font-size: 500%;
     color: aliceblue;
     width: 94%;
     margin: 0;
-}
-
-#rectical{
-    font-size: 180%;
-    text-align: center;
-    
 }
 
 #quest1{
