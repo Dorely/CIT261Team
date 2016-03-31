@@ -3,6 +3,10 @@ body, html{
     height: 100%;
     background-color: darkolivegreen;
     margin: 0;
+    animation-name: toShader;
+    animation-play-state: paused;
+    animation-iteration-count: 1;
+    animation-duration: .5s;
 }
 
 #shade{
@@ -76,4 +80,14 @@ button{
     font-size: 200%;
     width: 100%;
     height: 100%;
+}
+
+@keyframes toShader{
+    0%    {background-color: darkolivegreen}
+    100%  {background-color: rgb(23, 33, 9)}
+}
+
+@keyframes fromShader {
+    0%    {background-color: rgb(23, 33, 9)}
+    100%  {background-color: darkolivegreen}
 }

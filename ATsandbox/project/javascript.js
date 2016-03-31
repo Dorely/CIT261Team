@@ -29,10 +29,9 @@ function getscope(){
 
 function cameraView(){
     console.log("changing")
-    var imgHeight = 0
+
     
     var body = document.getElementById("body")
-   // var content = document.getElementById("content")
     var video = document.getElementById("video")
     var img = document.getElementById("img")
     var header = document.getElementById("header")
@@ -40,7 +39,8 @@ function cameraView(){
     var mainContent = main.innerHTML
     var footer = document.getElementById("footer")
 
-    
+    body.style.animationPlayState = "running"
+    body.addEventListener("animationend", bodyAnimEnd, false)
     
     body.addEventListener("touchstart", function(){
                         
@@ -48,7 +48,7 @@ function cameraView(){
            && (event.target.nodeName != "IMG" && event.target.nodeName != "BUTTON")){
             
             console.log("Going Back")
-            body.style.backgroundColor = "darkolivegreen"
+            body.style.animationName = "fromShader"
             
             header.innerHTML = "Lets Get Started..."
             header.style.fontSize = "750%"
@@ -69,10 +69,6 @@ function cameraView(){
         }
         
     }, false)
-    
-//    body.appendChild(shader)
-    
-    body.style.backgroundColor = "#172109"
     
     openCamera(video)
     
@@ -133,3 +129,17 @@ function openCamera(element){
                 }, errBack);
             }
 } 
+
+function bodyAnimEnd(){
+    console.log("checking")
+    console.log(this.style.backgroundColor)
+    if(this.style.backgroundColor != "rgb(23, 33, 9)"){
+        this.style.backgroundColor = "rgb(23, 33, 9)"
+    }
+    else{
+        this.style.animationName = "toShader"
+        this.style.animationPlayState = "paused"
+        this.style.backgroundColor = "darkolivegreen"
+        
+    }
+}
