@@ -5,11 +5,19 @@ function loadPage(){
     button.addEventListener("touchstart", cameraView, false)
     
     body.style.height = (window.innerHeight + 150) + "px"
+    var scopeVal = document.getElementById("scope").value
+    
+    getScope(scopeVal)
+    
 }
 
-function getscope(){
+function getScope(value){
     var xhttp = new XMLHttpRequest();
-        
+    
+    var path = "fake.php?scope=" + value
+    
+    console.log(path)
+    
     xhttp.onreadystatechange = function()
     {
         
@@ -18,13 +26,14 @@ function getscope(){
             console.log("Readystate " + xhttp.readyState 
                         + " Status " + xhttp.status)
             
-            var text = xhttp.responseText
-            console.log(text)
-        
+            var scopeSpec = JSON.parse(xhttp.responseText)
+            console.log(scopeSpec)
             
+            document.getElementById("spec").innerText = "MOA: " + scopeSpec[0]
+            scopeAdj = scopeSpec[1]  
         }   
     }
-    xhttp.open("GET", "fake.php", true);
+    xhttp.open("GET", path, true);
     xhttp.send();
     
 }
@@ -49,7 +58,7 @@ function cameraView(){
         console.log(event)
         
         if(body.style.backgroundColor == "rgb(23, 33, 9)" 
-           && (event.target.nodeName != "IMG" && event.target.nodeName != "BUTTON")){
+           && (event.target.nodeName != "IMG" && event.target.nodeName != "VIDEO")){
             
             console.log("Going Back")
             body.style.animationName = "fromShader"
@@ -67,6 +76,7 @@ function cameraView(){
             main.innerHTML = mainContent
             
             footer.innerHTML = "<button id='nextButton'>Lets Go!</button>"
+            footer.style.fontSize = "600%"
             footer.style.paddingTop = "200px"
             
             loadPage()
@@ -76,7 +86,7 @@ function cameraView(){
     
     openCamera(video)
     
-    header.innerHTML = "Put the target inside the box"
+    header.innerHTML = "Put the crosshair on the point of aim"
 //    header.style.fontSize = "600%"
     
     main.innerHTML = ""
@@ -97,7 +107,8 @@ function cameraView(){
     
     video.style.display = "block"
     
-    footer.innerHTML = "Put the crosshair at the point of aim"
+    footer.innerHTML = "Tap outside the scope to go back"
+    footer.style.fontSize = "400%"
     footer.style.paddingTop = "0px"
     footer.style.textAlign = "center"
 }

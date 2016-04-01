@@ -43,7 +43,11 @@ main{
 
 #quest1{
     padding-top: 50px;
-    padding-bottom: 10%;
+
+}
+
+#spec{
+    padding-bottom: 4%;
 }
 
 input, select{
