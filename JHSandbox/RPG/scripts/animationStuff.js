@@ -25,21 +25,21 @@ function enterGameAnimation(){
 
     for(var i=0;i<imageArray.length;i++){
         imageArray[i].className = "transitionProperties4"
-        imageArray[i].style.transform = "translate(-100%,-10%)"
+        imageArray[i].style.transform = "translate(-100%,-35%)"
     }
     nameBox.style.display = "none";
-    topImageUnder.className = "transitionProperties2";
-    topImageUnder.style.transform = "translate(-60%,-10%)"
+    topImageUnder.className = "transitionProperties4";
+    topImageUnder.style.transform = "translate(-100%,-10%)"
 
-    bottomImageUnder.className = "transitionProperties2";
-    bottomImageUnder.style.transform = "translate(60%,10%)"
+    bottomImageUnder.className = "transitionProperties4";
+    bottomImageUnder.style.transform = "translate(100%,10%)"
 
 
 
     var frameImage = document.getElementById("frameImage")
     frameImage.style.transform = "scale(1.15,1.1)"
 
-    gameDiv.style.transform = "translate(-50%,-27%)"
+    gameDiv.style.transform = "translate(-50%,-27.5%)"
     gameDiv.style.zIndex = "0"
     gameDiv.style.opacity = "1"
 

@@ -142,19 +142,19 @@
 
 #gameMainDiv{
     position: absolute;
-    width: 86%;
-    height: 94%;
+    width: 93%;
+    height: 97%;
     z-index: -1;
-    background: purple;
     border: solid black;
+    border-radius: 2vh;
     margin-left: 50%;
     margin-top: 50%;
-    transform: translate(-50%,-27%);
+    transform: translate(-50%,-27.5%);
     opacity: 0;
 
     transition-property: transform, opacity;
-    transition-delay: 1s;
-    transition-duration: 2s;
+    transition-delay: 0s;
+    transition-duration: 3s;
     transition-timing-function: linear;
 }
 
@@ -173,7 +173,208 @@
     overflow: hidden;
 }
 
+#optionsArea{
+    width: 100%;
+    height: calc(40% - 3px);
+    background: #232327 none repeat scroll 0% 0%;
+    border-bottom-right-radius: 1.5vh;
+    border-bottom-left-radius: 1.5vh;
+    border-top: black solid 3px;
+    top: -1px;
+    position: relative;
+    padding: 5%;
+    padding-top: 2%;
+
+}
+
+#innerOptionsArea{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#innerOptionsArea button{
+    font-size: 6vh;
+    background: #232327;
+    color: lime;
+    border: medium solid;
+
+    animation-name: buttonPulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
+}
+
+@keyframes buttonPulse {
+    from {
+        color: lime;
+        border-color: lime;
+    }
+    50%{
+        color: green;
+        border-color: green;
+    }
+    to {
+        color: lime;
+        border-color: lime;
+    }
+}
+
+
+#cursor{
+    color: lime;
+    font-size: 4vh;
+
+
+    animation-name: cursorBlink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: step-end;
+}
+
+@keyframes cursorBlink{
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: lime;
+    }
+}
+
+#textArea{
+
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#topArea{
+    width: 100%;
+    background: #161816;
+    height: 60%;
+    border-top-left-radius: 1.5vh;
+    border-top-right-radius: 1.5vh;
+    color: lime;
+
+    overflow: hidden;
+}
+
+#textArea p{
+    width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    top: 8%;
+    position: relative;
+    font-size: 4vh;
+    /*text-align: justify;*/
+}
+
 body{
     background: #32312D;
     overflow: hidden;
+}
+
+#battleArea{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#battleArea p{
+    width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8%;
+    position: relative;
+    font-size: 3vh;
+}
+
+#battleArea div{
+    width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    font-size: 3vh;
+    border: solid lime;
+    text-align: center;
+    margin-top: 2%;
+    height: 12%;
+    line-height: 6vh;
+
+    animation-name: buttonPulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
+}
+
+#worldArea{
+    top: 4%;
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: 95%;
+}
+
+#worldArea table{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 20vh;
+}
+
+#worldArea td{
+    border: solid;
+
+    animation-name: buttonPulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
+}
+
+#optionsMenu{
+    position: absolute;
+    width: 60%;
+    height: 50%;
+    background: #232327 none repeat scroll 0% 0%;
+    top: -40%;
+    right: -40%;
+    opacity: .8;
+    border-radius: 75px;
+
+    transition-property: all;
+    transition-timing-function: ease-out;
+    transition-duration: 1s;
+}
+
+#optionsMenu div{
+    position: absolute;
+    top: 90%;
+    left: 1%;
+    transform: rotate(45deg);
+    color: lime
+}
+
+#optionsMenu button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20%;
+    width: 80%;
+
+    font-size: 4vh;
+    background: #232327;
+    color: lime;
+    border: medium solid;
+
+    animation-name: buttonPulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
 }
