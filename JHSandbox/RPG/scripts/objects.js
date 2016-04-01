@@ -34,16 +34,17 @@ function WorldMap(x,y,locations){
     this.width = x;
     this.height = y;
     this.locations = locations;
-
+    this.playerLocationX = 0;
+    this.playerLocationY = 0;
 }
 
-function Location(locationEvents,terrain){
+function Location(locationEvents,name){
     this.events = locationEvents;
-    this.terrainType = terrain;
+    this.name = name;
     this.discovered = false;
 }
 
-function Event(eventType,enemies,experience,difficulty,description,eventName){
+function Event(eventType,enemies,experience,difficulty,description,eventName,choices){
     this.eventType = eventType;
     this.eventEnemies = enemies;
     this.experienceReward = experience;
@@ -51,6 +52,42 @@ function Event(eventType,enemies,experience,difficulty,description,eventName){
     this.eventDescription = description;
     this.eventName = eventName;
     this.completed = false;
+    this.choices = choices;
+    this.nextEvent = false
+}
+
+function beginStoryEvent(){
+    Event.call(this,"Story",null,100,0,"You find yourself in an abandoned laboratory, no sign of life anywhere, looking around you find the only way to go is down the hall","The Beginning",["Continue"])
+    this.nextEvent = new firstCombatEvent();
+}
+
+function firstCombatEvent(){
+    Event.call(this,"Combat",[new FaceHugger1(),new FaceHugger1()],0,1,"You see 2 small crab like creatures lurking in the hallway. As you approach they attack!","Fight 1",["Attack","Other","Status","Run"])
+    this.nextEvent = new afterFirstCombatEvent();
+}
+
+function afterFirstCombatEvent(){
+    Event.call(this,"Story",null,100,0,"The face huggers lie dead on the ground. You continue down the hallway and find what appears the be an armory. You find a weapon and some basic armor. The only way to go is another hallway with a door leading outside at the end of it.","The Armory",["Continue"])
+}
+
+function emptyBuildingEvent(){
+    Event.call(this,"Story",null,100,0,"You enter the abandoned building, you find a new weapon!","Abandoned Building",["Continue"])
+}
+
+function level1CombatOption1(){
+    Event.call(this,"Combat",[new FaceHugger1(),new FaceHugger1()],0,1,"You see 2 small Face Huggers. They attack!","Group of level 1 Face Huggers",["Attack","Other","Status","Run"])
+}
+
+function level1CombatOption2(){
+    Event.call(this,"Combat",[new FaceHugger1(),new FaceHugger1(),new FaceHugger1()],0,1,"You see 3 small Face Huggers. They attack!","Big Group of level 1 Face Huggers",["Attack","Other","Status","Run"])
+}
+
+function level2CombatOption1(){
+    Event.call(this,"Combat",[new FaceHugger1(),new FaceHugger1(),new SpaceZombie1()],0,2,"You see 2 small Face Huggers and a Space Zombie. They attack!","Level 2 Fight 1",["Attack","Other","Status","Run"])
+}
+
+function level2CombatOption2(){
+    Event.call(this,"Combat",[new FaceHugger1(),new FaceHugger2(),new SpaceZombie1()],0,2,"You see a small Face Hugger, a Large Face Hugger and a Space Zombie. They attack!","Level 2 Fight 2",["Attack","Other","Status","Run"])
 }
 
 function Enemy(name,maxHealth,level,experience,gold,text,attackDamage){
@@ -61,6 +98,7 @@ function Enemy(name,maxHealth,level,experience,gold,text,attackDamage){
     this.experienceReward = experience;
     this.goldReward = gold;
     this.attackText = text;
+    this.attackDamage = attackDamage;
 }
 
 function FaceHugger1(){
@@ -110,7 +148,7 @@ function SyntheticArmor(){
 
 function Weapon(name,weaponAttack,weaponType){
     this.name = name;
-    this.armorAmount = weaponAttack;
+    this.attackAmount = weaponAttack;
     this.weaponType = weaponType;
 }
 
